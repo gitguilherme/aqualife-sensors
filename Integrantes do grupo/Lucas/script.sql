@@ -37,7 +37,12 @@ create table tanque(
     fkEmpresa int,
     foreign key (fkEmpresa) references empresa (idEmpresa)
 );
-
+create table tanquefuncionario(
+	fkTanque int,
+    fkFuncionario int,
+    foreign key (fktanque) references tanque (idTanque),
+    foreign key (fkFuncionario) references funcionario (idFuncionario)
+)
 create table logSensor(
 	valorTemperatura float,
     valorTurbidez float,
