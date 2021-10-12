@@ -1,0 +1,115 @@
+* {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    height: 125px;
+    background: rgb(0,124,184);
+    background: linear-gradient(132deg, rgba(0,124,184,1) 0%, rgba(235,239,245,1) 21%, rgba(255,255,255,1) 100%); 
+}
+.container{
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container img{
+    height: 200px;
+    width: 200px;
+}
+.navbar{
+    display: flex;
+    list-style: none;
+    width: 50%;
+    justify-content: space-evenly;
+}
+.navbar li{
+    font-weight: lighter;
+    color: #007CB8;
+}
+.navbar li a{
+    color: #007CB8;
+    text-decoration: none;
+    padding: 12px;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+.navbar li a:hover{
+    background-color: #007CB8;
+    color: white;
+}
+.navbar .active {
+    font-weight: bolder;
+}
+
+.banner{
+    height: 600px;
+    background-image: url(https://wallpapersfull.com/wallpapers/2019/peixes-cardume-mar-wallpaper-20609.jpg);
+    background-size: cover;
+    background-position: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.message{
+    margin-right: 300px;
+    width: 10%;
+    color: rgb(43, 43, 43);
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.proposito{
+    height: 500px;
+    background-color: #e5e5e5;
+}
+
+.proposito .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.proposito .container h2{
+    color:#007CB8;
+    border-radius: 25px;
+}
+.proposito .container .mvv{
+    margin-top: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.proposito .container .mvv div img{
+    height: 100px;
+    width: 100px;
+}
+.proposito .container .mvv div{
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.proposito .container .mvv div h3{
+    color:#007CB8;
+    font-weight: bolder;
+    margin: 25px 0;
+}
+.footer{
+    background-color: #007CB8;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer p{
+    color: white;
+}
