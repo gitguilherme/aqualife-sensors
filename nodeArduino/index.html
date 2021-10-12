@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Line Chart</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<h1>Temperatura</h1>
+		<section>
+			<h2>Média: <label id='average'>0.00</label></h2>
+		</section>
+		<section style="width:100%">
+			<canvas id="chart"></canvas>
+		</section>
+		<div id="alertTemperatura"></div>
+	</div>
+	<div>
+		<h1>Turbidez</h1>
+		<section>
+			<h2>Média: <label id='averageTurbidez'>0.00</label></h2>
+		</section>
+		<section style="width:100%">
+			<canvas id="chart2"></canvas>
+		</section>
+		<div id="alertTurbidez"></div>
+	</div>
+
+	<script>
+
+		var context = document.getElementById("chart").getContext("2d");
+		context.canvas.width = 1000;
+		context.canvas.height = 300;
+
+		var context2 = document.getElementById("chart2").getContext("2d");
+		context.canvas.width = 1000;
+		context.canvas.height = 300;
+
+		var configuration = {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "Temperatura",
+					type: 'line',
+					borderColor: ['#ff3232'],
+					backgroundColor: ['#ff7f7f'],
+				}]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						distribution: 'series',
+						ticks: {
+							beginAtZero: true
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Temperatura'
+						},
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+		};
+
+		var chart = new Chart(context, configuration);
+
+		var configuration2 = {
+			type: 'line',
+			data: {
+				datasets: [{
+					label: "Turbidez",
+					type: 'line',
+					borderColor: ['#32ff32'],
+					backgroundColor: ['#7fff7f']
+				}
+			]
+			},
+			options: {
+				scales: {
+					xAxes: [{
+						distribution: 'series',
+						ticks: {
+							beginAtZero: true
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Turbidez'
+						},
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				animation: {
+					duration: 0
+				}
+			}
+		};
+
+
+		var chart2 = new Chart(context2, configuration2);
+		//Função para obter os dados de temperatura do server
+		//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+		//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+		//hora de montar/atualizar o gráfico
+		this.lastIndex = 0;
+		this.time = 0;
+		this.timeTurbidez = 0;
+
+		function get_data() {
+
+			var http = new XMLHttpRequest();
+			http.open('GET', 'http://localhost:3000/api', false);
+			http.send(null);
+
+			var obj = JSON.parse(http.responseText);
+			if (obj.data.length == 0) {
+				return;
+			}
+
+			var _lastIndex = this.lastIndex;
+			this.lastIndex = obj.data.length;
+			listTemp = obj.data.slice(_lastIndex);
+			listTurbidez = obj.turbidez.slice(_lastIndex);
+
+			listTemp.forEach(data => {
+				
+				//Máximo de 60 itens exibidos no gráfico
+				if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+					chart.data.labels.shift();
+					chart.data.datasets[0].data.shift();
+				}
+
+				chart.data.labels.push(this.time++);
+				chart.data.datasets[0].data.push(parseFloat(data));
+				chart.update();
+
+				if (data >= 31) {
+					alertTemperatura.innerHTML = "Temperatura crítica: acima do desejado, pode ocorrer perda";
+					alertTemperatura.style.backgroundColor = 'red';
+				}
+				else if (data >= 26) {
+					alertTemperatura.innerHTML = "Temperatura OK: Tamanho grande";
+					alertTemperatura.style.backgroundColor = 'green';
+
+				}
+				else if (data >= 23) {
+					alertTemperatura.innerHTML = "Temperatura OK: Tamanho médio";
+					alertTemperatura.style.backgroundColor = 'green';
+
+				}
+				else if (data >= 19) {
+					alertTemperatura.innerHTML = "Temperatura com taxa de crescimento reduzida";
+					alertTemperatura.style.backgroundColor = 'yellow';
+
+				}
+				else if (data >= 18 && data <= 18.99) {
+					alertTemperatura.innerHTML = "Abaixo dessa temperatura a reprodução é interrompida";
+					alertTemperatura.style.backgroundColor = 'yellow';
+
+				}
+				else if (data >= 17 && data <= 17.99) {
+					alertTemperatura.innerHTML = "Temperatura com taxa de crescimento reduzida e reprodução interrompida";
+					alertTemperatura.style.backgroundColor = 'yellow';
+
+				}
+				else if (data >= 16 && data <= 16.99) {
+					alertTemperatura.innerHTML = "Abaixo dessa temperatura a alimentação é interrompida";
+					alertTemperatura.style.backgroundColor = 'gold';
+
+				}
+				else if (data >= 11) {
+					alertTemperatura.innerHTML = "Temperatura com taxa de crescimento prejudicada, reprodução e alimentação interrompida";
+					alertTemperatura.style.backgroundColor = 'gold';
+
+				}
+				else {
+					alertTemperatura.innerHTML = "Risco de morte";
+					alertTemperatura.style.backgroundColor = 'red';
+
+				}
+			});
+
+			listTurbidez.forEach(data => {
+
+				//Máximo de 60 itens exibidos no gráfico
+				if (chart2.data.labels.length == 10 && chart2.data.datasets[0].data.length == 10) {
+					chart2.data.labels.shift();
+					chart2.data.datasets[0].data.shift();
+				}
+
+				chart2.data.labels.push(this.timeTurbidez++);
+				chart2.data.datasets[0].data.push(parseFloat(data));
+				chart2.update();
+
+				if (data >= 100) {
+					alertTurbidez.innerHTML = "Turbidez crítica";
+					alertTurbidez.style.backgroundColor = 'red';
+				} else if (data >= 83.4) {
+					alertTurbidez.innerHTML = "Temperatura próxima de crítica";
+					alertTurbidez.style.backgroundColor = 'gold';
+				} else if (data >= 66.67) {
+					alertTurbidez.innerHTML = "Alerta!";
+					alertTurbidez.style.backgroundColor = 'yellow';
+				} else {
+					alertTurbidez.innerHTML = "Turbidez ok";
+					alertTurbidez.style.backgroundColor = 'green';
+				}
+			});
+
+
+
+
+			document.getElementById('average').textContent = obj.average;
+			document.getElementById('averageTurbidez').textContent = obj.averageTurbidez;
+
+		}
+
+		setInterval(() => {
+			get_data();
+		}, 2500);
+		
+	</script>
+</body>
+
+</html>
