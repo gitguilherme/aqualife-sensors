@@ -15,7 +15,7 @@ body{
 .header{
     height: 60px;
     background: rgb(0,123,184);
-background: linear-gradient(130deg, rgba(0,123,184,0.36) 0%, rgba(235,239,245,0.26) 20%, rgba(235,239,245,0.26) 80%, rgba(0,123,184,0.36) 100%); 
+background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%); 
 }
 .container{
     height: 100%;
@@ -57,7 +57,7 @@ background: linear-gradient(130deg, rgba(0,123,184,0.36) 0%, rgba(235,239,245,0.
 }
 
 .banner{
-    height: 600px;
+    height: 460px;
     /* background-image: url(https://i.imgur.com/PLqQzbT.jpg); */
     background-size: cover;
     background-position: 0vh;
@@ -65,12 +65,18 @@ background: linear-gradient(130deg, rgba(0,123,184,0.36) 0%, rgba(235,239,245,0.
     justify-content: center;
     align-items: center;
 }
-.message{
+.banner .message{
     margin-right: 300px;
     width: 10%;
     color: white;
     font-size: 30px;
     font-weight: bolder;
+}
+#iconMouse{
+    display: flex;
+    padding-bottom: 50px;
+    justify-content: center;
+    text-align: center;
 }
 
 .proposito{
@@ -118,7 +124,7 @@ background: linear-gradient(130deg, rgba(0,123,184,0.36) 0%, rgba(235,239,245,0.
     font-weight: bold;
 }
 .footer{
-    background-color: #007CB8;
+    background-color: #233c72;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -129,4 +135,27 @@ background: linear-gradient(130deg, rgba(0,123,184,0.36) 0%, rgba(235,239,245,0.
 }
 .altura{
     height: 100px;
+}
+.adCadastro{
+    background-image: url(https://blog.softensistemas.com.br/wp-content/uploads/2020/07/BannerRodape3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+.experimentar{
+    width: 40%;
+    float: left;
+    padding-top: 60px;
+}
+.experimentar h4{
+    color: white;
+    line-height: 60px;
+    font-size: 30px;
+}
+.experimentar span{
+    padding: 15px 50px;
+    background-color: white;
+    border-radius: 20px;
+    color: #007CB8;
+    font-weight: bolder;
 }
