@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	
 	<title>Line Chart</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
@@ -53,7 +54,7 @@
 				datasets: [{
 					label: "Temperatura",
 					type: 'line',
-					borderColor: ['#ff3232'],
+					
 					backgroundColor: ['#ff7f7f'],
 				}]
 			},
@@ -89,7 +90,6 @@
 				datasets: [{
 					label: "Turbidez",
 					type: 'line',
-					borderColor: ['#32ff32'],
 					backgroundColor: ['#7fff7f']
 				}
 			]
@@ -136,15 +136,12 @@
 			http.send(null);
 
 			var obj = JSON.parse(http.responseText);
-			if (obj.data.length == 0) {
-				return;
-			}
 
 			var _lastIndex = this.lastIndex;
-			this.lastIndex = obj.data.length;
-			listTemp = obj.data.slice(_lastIndex);
+			this.lastIndex = obj.temperatura.length;
+			listTemp = obj.temperatura.slice(_lastIndex);
 			listTurbidez = obj.turbidez.slice(_lastIndex);
-
+			console.log(listTemp[listTemp.length-1])
 			listTemp.forEach(data => {
 				
 				//Máximo de 60 itens exibidos no gráfico
@@ -155,52 +152,57 @@
 
 				chart.data.labels.push(this.time++);
 				chart.data.datasets[0].data.push(parseFloat(data));
-				chart.update();
+				
 
 				if (data >= 31) {
 					alertTemperatura.innerHTML = "Temperatura crítica: acima do desejado, pode ocorrer perda";
 					alertTemperatura.style.backgroundColor = 'red';
+					chart.data.datasets[0].backgroundColor = 'red';
 				}
 				else if (data >= 26) {
 					alertTemperatura.innerHTML = "Temperatura OK: Tamanho grande";
 					alertTemperatura.style.backgroundColor = 'green';
-
+					chart.data.datasets[0].backgroundColor = 'green';
 				}
 				else if (data >= 23) {
 					alertTemperatura.innerHTML = "Temperatura OK: Tamanho médio";
 					alertTemperatura.style.backgroundColor = 'green';
-
+					chart.data.datasets[0].backgroundColor = 'green';
 				}
 				else if (data >= 19) {
 					alertTemperatura.innerHTML = "Temperatura com taxa de crescimento reduzida";
 					alertTemperatura.style.backgroundColor = 'yellow';
-
+					chart.data.datasets[0].backgroundColor = 'yellow';
 				}
 				else if (data >= 18 && data <= 18.99) {
 					alertTemperatura.innerHTML = "Abaixo dessa temperatura a reprodução é interrompida";
 					alertTemperatura.style.backgroundColor = 'yellow';
-
+					chart.data.datasets[0].backgroundColor = 'yellow';
 				}
 				else if (data >= 17 && data <= 17.99) {
 					alertTemperatura.innerHTML = "Temperatura com taxa de crescimento reduzida e reprodução interrompida";
 					alertTemperatura.style.backgroundColor = 'yellow';
+					chart.data.datasets[0].backgroundColor = 'yellow';
 
 				}
 				else if (data >= 16 && data <= 16.99) {
 					alertTemperatura.innerHTML = "Abaixo dessa temperatura a alimentação é interrompida";
 					alertTemperatura.style.backgroundColor = 'gold';
-
+					chart.data.datasets[0].backgroundColor = 'gold';
 				}
 				else if (data >= 11) {
 					alertTemperatura.innerHTML = "Temperatura com taxa de crescimento prejudicada, reprodução e alimentação interrompida";
 					alertTemperatura.style.backgroundColor = 'gold';
+					chart.data.datasets[0].backgroundColor = 'gold';
 
 				}
 				else {
 					alertTemperatura.innerHTML = "Risco de morte";
 					alertTemperatura.style.backgroundColor = 'red';
-
+					chart.data.datasets[0].backgroundColor = 'red';
 				}
+
+				chart.update();
 			});
 
 			listTurbidez.forEach(data => {
@@ -209,31 +211,40 @@
 				if (chart2.data.labels.length == 10 && chart2.data.datasets[0].data.length == 10) {
 					chart2.data.labels.shift();
 					chart2.data.datasets[0].data.shift();
+					
 				}
 
 				chart2.data.labels.push(this.timeTurbidez++);
 				chart2.data.datasets[0].data.push(parseFloat(data));
-				chart2.update();
-
+				
 				if (data >= 100) {
 					alertTurbidez.innerHTML = "Turbidez crítica";
 					alertTurbidez.style.backgroundColor = 'red';
+					chart2.data.datasets[0].backgroundColor = 'red';
 				} else if (data >= 83.4) {
 					alertTurbidez.innerHTML = "Temperatura próxima de crítica";
 					alertTurbidez.style.backgroundColor = 'gold';
+					chart2.data.datasets[0].backgroundColor = 'gold';
+					
+					
 				} else if (data >= 66.67) {
 					alertTurbidez.innerHTML = "Alerta!";
 					alertTurbidez.style.backgroundColor = 'yellow';
+					chart2.data.datasets[0].backgroundColor = 'yellow';
+					
 				} else {
 					alertTurbidez.innerHTML = "Turbidez ok";
 					alertTurbidez.style.backgroundColor = 'green';
+					chart2.data.datasets[0].backgroundColor = 'green';
+					
 				}
+				chart2.update();
 			});
 
 
 
 
-			document.getElementById('average').textContent = obj.average;
+			document.getElementById('average').textContent = obj.averageTemperatura;
 			document.getElementById('averageTurbidez').textContent = obj.averageTurbidez;
 
 		}

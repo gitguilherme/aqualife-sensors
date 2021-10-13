@@ -5,16 +5,16 @@ const router = express.Router();
 
 router.get('/', (request, response, next) => {
 
-    let sum = ArduinoDataTemp.List.reduce((a, b) => a + b, 0);
-    let average = (sum / ArduinoDataTemp.List.length).toFixed(2);
-    let sumTurbizez = ArduinoDataTemp.ListTurbidez.reduce((a, b) => a + b, 0);
-    let averageTurbidez = (sumTurbizez/ArduinoDataTemp.ListTurbidez.length).toFixed(2);
+    let sumTemperatura = ArduinoDataTemp.listaTemperatura.reduce((a, b) => a + b, 0);
+    let averageTemperatura = (sumTemperatura / ArduinoDataTemp.listaTemperatura.length).toFixed(2);
+    let sumTurbidez = ArduinoDataTemp.listaTurbidez.reduce((a, b) => a + b, 0);
+    let averageTurbidez = (sumTurbidez/ArduinoDataTemp.listaTurbidez.length).toFixed(2);
     
     response.json({
-        data: ArduinoDataTemp.List,
-        turbidez: ArduinoDataTemp.ListTurbidez,
-        total: ArduinoDataTemp.List.length,
-        average: isNaN(average) ? 0 : average,
+        temperatura: ArduinoDataTemp.listaTemperatura,
+        turbidez: ArduinoDataTemp.listaTurbidez,
+        total: ArduinoDataTemp.listaTemperatura.length,
+        averageTemperatura: isNaN(averageTemperatura) ? 0 : averageTemperatura,
         averageTurbidez: isNaN(averageTurbidez) ? 0 : averageTurbidez
     });
 

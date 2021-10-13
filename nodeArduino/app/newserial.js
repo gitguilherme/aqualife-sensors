@@ -5,17 +5,17 @@ const Readline = SerialPort.parsers.Readline;
 class ArduinoRead {
 
     constructor() {
-        this.listData = [];
-        this.ListaTurbidez = [];
+        this.listaTemperatura = [];
+        this.listaTurbidez = [];
         
     }
 
-    get List() {
-        return this.listData;
+    get ListaTemperatura() {
+        return this.listaTemperatura;
     }
 
-    get ListTurbidez(){
-        return this.ListaTurbidez;
+    get ListaTurbidez(){
+        return this.listaTurbidez;
     }
 
     fake_data() {
@@ -39,8 +39,8 @@ class ArduinoRead {
             console.log('Data', data_float);
         //    console.log('Luminosidade', luminosidade);
 
-            this.listData.push(data_float);
-            this.ListaTurbidez.push(turbidez);
+            this.listaTemperatura.push(data_float);
+            this.listaTurbidez.push(turbidez);
         }, 2000);
     }
 
@@ -72,13 +72,14 @@ class ArduinoRead {
                 });
                 parser.on('data', (data) => {
                     console.log('data', data);
-                    this.listData.push(parseFloat(data));
-
+                    
                     let split = data.split(" ");
-
+                    
+                    let temperatura = split[0];
                     let turbidez = split[1];
-
-                    this.ListaTurbidez.push(parseFloat(turbidez));
+                    
+                    this.listaTemperatura.push(parseFloat(temperatura));
+                    this.listaTurbidez.push(parseFloat(turbidez));
                 });
             } catch (e) {
                 this.fake_data();
@@ -91,4 +92,4 @@ class ArduinoRead {
 const serial = new ArduinoRead();
 serial.SetConnection();
 
-module.exports.ArduinoDataTemp = { List: serial.List, ListTurbidez: serial.ListTurbidez}
+module.exports.ArduinoDataTemp = { listaTemperatura: serial.ListaTemperatura, listaTurbidez: serial.ListaTurbidez}
