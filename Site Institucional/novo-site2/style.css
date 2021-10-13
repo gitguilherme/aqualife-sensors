@@ -159,3 +159,43 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     color: #007CB8;
     font-weight: bolder;
 }
+
+.banner2 .divlogin {
+    background-color: white;
+    height: 350px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    border-radius: 20px;    
+}
+
+
+.banner2 .divlogin h2 {
+    color: #007CB8;
+    }
+
+.banner2 .divlogin div {
+    display: flex;
+    flex-direction: column;
+    }
+
+.banner2 .divlogin div span {
+    color: #007CB8;
+    }
+
+.banner2 .divlogin div input {
+    border: 3px solid #007CB8;
+    border-radius: 10px;
+    padding: 10px;
+    }
+
+.banner2 .divlogin button {
+    background-color: #007CB8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    }
