@@ -1,13 +1,21 @@
 * {
-    font-family: Arial;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+body{
+    background: url(https://i.imgur.com/PLqQzbT.jpg) center center no-repeat fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .header{
-    height: 125px;
-    background: rgb(0,124,184);
-    background: linear-gradient(132deg, rgba(0,124,184,1) 0%, rgba(235,239,245,1) 21%, rgba(255,255,255,1) 100%); 
+    height: 60px;
+    background: rgb(0,123,184);
+background: linear-gradient(130deg, rgba(0,123,184,0.36) 0%, rgba(235,239,245,0.26) 20%, rgba(235,239,245,0.26) 80%, rgba(0,123,184,0.36) 100%); 
 }
 .container{
     height: 100%;
@@ -20,8 +28,9 @@
     align-items: center;
 }
 .header .container img{
-    height: 200px;
-    width: 200px;
+    margin-top: 8px;
+    height: 44px;
+    width: 122px;
 }
 .navbar{
     display: flex;
@@ -30,7 +39,6 @@
     justify-content: space-evenly;
 }
 .navbar li{
-    font-weight: lighter;
     color: #007CB8;
 }
 .navbar li a{
@@ -50,7 +58,7 @@
 
 .banner{
     height: 600px;
-    background-image: url(https://wallpapersfull.com/wallpapers/2019/peixes-cardume-mar-wallpaper-20609.jpg);
+    /* background-image: url(https://i.imgur.com/PLqQzbT.jpg); */
     background-size: cover;
     background-position: 0vh;
     display: flex;
@@ -60,13 +68,16 @@
 .message{
     margin-right: 300px;
     width: 10%;
-    color: rgb(43, 43, 43);
+    color: white;
     font-size: 30px;
     font-weight: bolder;
 }
 
 .proposito{
+    margin: auto;
+    border-radius: 15px;
     height: 500px;
+    width: 80vw;
     background-color: #e5e5e5;
 }
 
@@ -81,7 +92,7 @@
     border-radius: 25px;
 }
 .proposito .container .mvv{
-    margin-top: 90px;
+    margin-top: 65px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -103,13 +114,19 @@
     font-weight: bolder;
     margin: 25px 0;
 }
+.proposito .container .mvv div p{
+    font-weight: bold;
+}
 .footer{
     background-color: #007CB8;
-    height: 150px;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .footer p{
     color: white;
+}
+.altura{
+    height: 100px;
 }
