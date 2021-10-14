@@ -199,3 +199,43 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     padding: 10px 20px;
     border-radius: 10px;
     }
+
+.divConteiner{
+    margin: auto;
+    border-radius: 35px;
+    height: 500px;
+    width: 70vw;
+    height: 80vh;
+    background-color: #e5e5e5;
+}    
+
+.divConteiner .Conteiner .tituloPrincipal{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    color: #007cb8;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.opcoesCalculos {
+    width: 500px;
+    height: 300px;
+}
+
+
+.subTitulo #calcularReceita {
+    width: 250px;
+    margin-left: 250px;
+    padding-top: 50px;
+    color: #007CB8;
+    font-weight: bolder;
+}
+
+.divConteiner .Conteiner .opcoesCalculos img{
+    width: 350px;
+    margin-left: 140px;
+    margin-top: 50px;
+}
+
+
