@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Aqualife</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="header">
         <div class="container">
@@ -21,75 +23,87 @@
     </div>
     <br><br><br><br><br><br>
     <div class="banner2">
-            <div class="divlogin">
-                <h3>Bem vindo!</h3>
-                
-                <div id="useraqualife">
-                    <span>Selecione o Usuário </span>
-                    <select id="typeuser">
-                        <option value="poweruser">Power User</option>
-                        <option value="user">User</option>
-                    </select>
-                </div>
-                
-                <div>
-                    <span>E-mail: </span> 
-                        <input id="emailuser" type="text" placeholder="Insira o e-mail para login">
-                </div>
-                <div>
-                    <span>Senha: </span>
-                        <input id="senhauser" type="password" placeholder="ex('Aqualife@123')">
-                </div>
-                    <button id="validar" onclick="entrar()">Entrar</button>
+        <div class="divlogin">
+            <h3>Bem vindo!</h3>
 
-                <h3> Não possui cadastro? Clique abaixo!</h3>
-
-                    <button><a href="paginacadastro">Registrar-me</a></button>
-
-                    <div id="erro"></div>
-                
-
+            <div id="useraqualife">
+                <span>Selecione o Usuário </span>
+                <select id="typeuser">
+                    <option value="">Selecione o usúario</option>
+                    <option value="poweruser">Power User</option>
+                    <option value="user">User</option>
+                </select>
             </div>
+
+            <div>
+                <span>E-mail: </span>
+                <input id="emailuser" type="text" placeholder="Insira o e-mail para login">
+            </div>
+            <div>
+                <span>Senha: </span>
+                <input id="senhauser" type="password" placeholder="ex('Aqualife@123')">
+            </div>
+            <button id="validar" onclick="entrar()">Entrar</button>
+
+            <h3> Não possui cadastro? <button id="buttonregistro" onclick="location.href='paginacadastro.html'">Registrar-me</button></h3>
+
+
         </div>
     </div>
-    <br><br>
-    <div id="iconMouse">
-        <img alt="iconMouse" src="https://blog.softensistemas.com.br/wp-content/themes/blogsoften/img/iconMouse.svg" width="18px">
     </div>
-    
-    
+    <br><br>
+
+
+
     <div class="altura"></div>
     <div class="altura"></div>
     <div class="footer">
         <p>Feito com amor por um aluno BandTec © 2021</p>
     </div>
 </body>
+
 </html>
 
 <script>
 
-function entrar(){
+    function entrar() {
 
-var email = emailuser.value
-var user = typeuser.value
-var password = senhauser.value
-var senhacorreta = ''
+        var email = emailuser.value
+        var user = typeuser.value
+        var password = senhauser.value
+        var senhacorreta = ''
 
-if((email == "adm@aqualife.com.br") && (password >= 8(length)) && (user == "poweruser")){
-   senhacorreta = 'Enterprise@2021' 
-}
-else if((email = "user@aqualife.com.br") && (password >= 8(length)) && (user == "user")){
-    senhacorreta = 'User@2021'
-} 
+        if ((email == "adm@aqualife.com.br") && (password.length >= 8) && (user == "poweruser")) {
+            senhacorreta = 'Admin@2021'
+        }
+        else if ((email = "user@aqualife.com.br") && (password.length >= 8) && (user == "user")) {
+            senhacorreta = 'User@2021'
+        }
 
-if((email == "adm@aqualife.com.br") && (password >= 8(length)) && (user == senhacorreta)){
-    alert(`Bem vindo novamente ${email} !`)
-} 
-else{
-erro.innerhtml="Usúario e/ou senha incorretos, verifique e tente novamente!"
-}}
+        else if (email == "") {
+            alert("preencha o campo de e-mail!")
+        }
+
+        else if (password == "") {
+            alert("Preencha o campo de senha!")
+        }
+
+        else if (user == "") {
+            alert("Selecione o tipo de usúario!")
+        }
 
 
+        if ((email == "adm@aqualife.com.br") && (password.length >= 8) && (user == "poweruser") && (password == senhacorreta)) {
+            alert(`Bem vindo novamente ${email} !`)
+        }
+
+        else if ((email == "user@aqualife.com.br") && (password.length >= 8) && (user == "user") && (password == senhacorreta)) {
+            alert(`Bem vindo novamente ${email} !`)
+        }
+        else {
+            alert("Usúario e/ou senha incorretos, verifique e tente novamente!")
+        }
+    }
 
 
 </script>

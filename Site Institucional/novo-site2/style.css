@@ -169,12 +169,14 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     align-items: center;
     justify-content: space-around;
     margin: auto;
-    border-radius: 20px;    
+    border-radius: 20px; 
+    padding: 13px 0px;  
+    text-decoration: none;
 }
 
 
 .banner2 .divlogin h2 {
-    color: #007CB8;
+    color: #394347;
     }
 
 .banner2 .divlogin div {
@@ -197,8 +199,11 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 10px;
-    }
+    border-radius: 10px;   
+}
+.button .divlogin button a{
+    text-decoration: ;
+}
 
 .divConteiner{
     margin: auto;
