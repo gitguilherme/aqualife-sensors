@@ -15,7 +15,7 @@ body{
 .header{
     height: 60px;
     background: rgb(0,123,184);
-background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%); 
+    background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%); 
 }
 .container{
     height: 100%;
@@ -189,16 +189,21 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
 .banner2 .divlogin div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     }
 
 .banner2 .divlogin div span {
     color: #007CB8;
+    margin-bottom: 10px;
     }
 
 .banner2 .divlogin div input {
     border: 3px solid #007CB8;
     border-radius: 10px;
     padding: 10px;
+    border-right: 0px;
+    border-top: 0px;
     }
 
 .banner2 .divlogin button {
@@ -207,6 +212,9 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     border: none;
     padding: 10px 20px;
     border-radius: 10px;   
+}
+.banner2 .divlogin button:hover{
+    background-color: #0497e0;
 }
 .button .divlogin button a{
     text-decoration: none;
@@ -289,4 +297,52 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
 }
 .medias label{
     font-size: 20px;
+}
+
+.banner3{
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.banner3 .divCadastro{
+    background-color: white;
+    height: 700px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+.banner3 .divCadastro div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+.banner3 .divCadastro div span{
+    color: #007CB8;
+    margin-bottom: 5px;
+}
+.banner3 .divCadastro div input{
+    border: #007CB8 solid;
+    border-right: 0px;
+    border-top: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+.banner3 .divCadastro button{
+    background-color: #007CB8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.banner3 .divCadastro button:hover{
+    background-color: #0497e0;
 }
