@@ -20,18 +20,18 @@ class ArduinoRead {
 
     fake_data() {
         setInterval(() => {
-            let data_float = sensors.lm35(-2, 3);
+            let data_float = sensors.lm35(20, 30);
 
             let luminosidade = sensors.ldr();
 
             let voltagem = luminosidade*5/1024;
             let turbidez = -111.25*voltagem+506.67;
 
-            if (this.listData.length === 59) {
-                let sum = this.listData.reduce((a, b) => a + b, 0);
-                this.listDataHour.push((sum / this.listData.length).toFixed(2));
-                while (this.listData.length > 0) {
-                    this.listData.pop();
+            if (this.listaTemperatura.length === 59) {
+                let sum = this.listaTemperatura.reduce((a, b) => a + b, 0);
+                this.listDataHour.push((sum / this.listaTemperatura.length).toFixed(2));
+                while (this.listaTemperatura.length > 0) {
+                    this.listaTemperatura.pop();
                 } 
             }
 

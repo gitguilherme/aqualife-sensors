@@ -249,5 +249,44 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     margin-left: 140px;
     margin-top: 50px;
 }
-
-
+.dashboard{
+    background-color: white;
+    width: 80vw;
+    margin: auto; 
+    border-radius: 20px;  
+    text-decoration: none;
+}
+.alertas{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+.alertas div{
+    margin-top: 10px;
+    
+}
+.alertas div div{
+    display: flex;
+    justify-content: center;
+}
+.graficos{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.grafico{
+    width: 45%;
+}
+.grafico h1{
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.medias{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.medias label{
+    font-size: 20px;
+}
