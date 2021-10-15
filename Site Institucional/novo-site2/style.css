@@ -137,7 +137,7 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     height: 100px;
 }
 .adCadastro{
-    background-image: url(https://blog.softensistemas.com.br/wp-content/uploads/2020/07/BannerRodape3.png);
+    background-image: url(img/bannercadastro.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 400px;
@@ -148,16 +148,23 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     padding-top: 60px;
 }
 .experimentar h4{
-    color: white;
+    color: #007CB8;
     line-height: 60px;
     font-size: 30px;
 }
 .experimentar span{
     padding: 15px 50px;
-    background-color: white;
+    background-color: #007CB8;
     border-radius: 20px;
-    color: #007CB8;
+    color: white;
     font-weight: bolder;
+}
+.experimentar span a{
+    text-decoration: none;
+    color: white;
+}
+.experimentar span:hover{
+    background-color: #0497e0;
 }
 
 .banner2 .divlogin {
@@ -202,7 +209,7 @@ background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 
     border-radius: 10px;   
 }
 .button .divlogin button a{
-    text-decoration: ;
+    text-decoration: none;
 }
 
 .divConteiner{
