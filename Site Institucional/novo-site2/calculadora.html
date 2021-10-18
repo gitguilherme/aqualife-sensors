@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador Financeiro</title>
     <link rel="stylesheet" href="style.css">
+    <script src="scriptCalculadora.js"></script>
 </head>
 <body>
     <div class="header">
@@ -20,27 +21,227 @@
         </div>
     </div>
     <div class="altura"></div>
-   <div class="divConteiner">
-        <div class="Conteiner">
-            <div class="tituloPrincipal">Escolha que tipo de calculadora você deseja usar</div>
-            <div class="opcoesCalculos">
-                <div class="subTitulo">
-                    <h3 id="calcularReceita">Calcular receita</h3>
-                    <br>
-                    <!-- <h3 id="eviteDesperdicio">Evite desperdício</h3> -->
+    <div class="mainBox" id="opcoesCalculo">
+        <div class="boxCalculadora">
+            <h2>Escolha qual calculadora deseja usar:</h2>
+            <div class="opcoesCalculadora">
+                <div>
+                    <h3>Calcular receita</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1573/1573396.png" onclick="calcularReceita()" alt="">
                 </div>
-                <div class="img"> 
-                    <img src="https://blogdosistema.com.br/wp-content/uploads/2018/10/POST00-27-11.png" alt="calculadora">
+                <div>
+                    <h3>Evite desperdício</h3>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1573/1573396.png" onclick="eviteDesperdicio()" alt="">
                 </div>
             </div>
-            <div class="opcoesClaculos">
-
-            </div> 
         </div>
-   </div>
-   <div class="altura"></div>
-    <div class="footer">
+    </div>
+    <div class="mainBox" id="mainBoxCalcularReceita">
+        <div class="boxCalculadora">
+            <h2>Calcule sua receita</h2>
+                <br>
+                <br>
+            <p>Digite a quantidade quilogramas de tilápias vendidas:</p>
+                <br>
+            <input type="text" class="inputCalculadora" id="qntdTilapiaVendida" placeholder="Quantidade(Kg) de tilápias vendidas">
+                <br>
+                <br>
+            <p>Digite o preço de venda da tilápia por quilograma:</p>
+                <br>
+            <input type="text" class="inputCalculadora" id="valorDeVenda" placeholder="Preço de venda(Kg)">
+                <br>
+                <br>
+            <p>Digite o custo por quilograma da tilápia:</p>
+                <br>
+            <input type="text" class="inputCalculadora" id="custoQuiloTilapia" placeholder="Custo da tilápia(Kg)">
+                <br>
+                <br>
+            <span id="spanCalcularReceita" onclick="ock_calcularReceita()">Calcular receita</span>
+                <div class="spans">
+                    <span onclick="voltarMenu()">Voltar ao menu</span>
+                    <span onclick="irParaCalculadoraDesperdicio()">Ir para a calculadora de desperdício</span>
+                </div>
+        </div>
+    </div>
+    <div class="mainBox" id="mainBoxEviteDesperdicio">
+        <div class="boxCalculadora">
+            <h2>Evite o desperdício</h2>
+                <br>
+                <br>
+            <p>Digite quantos peixes você possui:</p>
+                <br>
+            <input type="text" class="inputCalculadora" id="qntdPeixesQuePossui" placeholder="Quantidade de peixes que possui">
+                <br>
+                <br>
+            <p>Digite a % de sua perda de peixes:</p>
+                <br>
+            <input type="text" class="inputCalculadora" id="porcentagemDePerda" placeholder="Porcentagem de perda de peixes">
+                <br>
+                <br>
+            <p>Digite o valor médio do peixe:</p>
+                <br>
+            <input type="text" class="inputCalculadora" id="valorMedioPeixe" placeholder="Valor médio do peixe">
+                <br>
+                <br>
+            <span id="spanCalcularDesperdicio" onclick="ock_calcularDesperdicio()">Calcular desperdício</span>
+                <div class="spans">
+                    <span onclick="voltarMenu()">Voltar ao menu</span>
+                    <span onclick="irParaCalculadoraReceita()">Ir para a calculadora de receita</span>
+                </div>
+        </div>
+    </div>   
+    <br>
+    <div class="mainBox mainBoxResultado" id="mainBoxResultadoReceita">
+            <br>
+            <br>
+            <br>
+            <br>
+        <div class="resultados">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            <p>Você vendeu <span id="kgVendas">xx</span> (Kg) de tilápia</p>
+                <br>
+            <p>Sua receita bruta é de R$<span id="receitaBruta">xxxxx</span></p>
+                <br>
+            <p>Sua receita liquida é de R$<span id="receitaLiquida">xxxxx</span></p>
+            <div class="altura"></div>
+            <span class="calcularNovamente" onclick="calcularReceitaNovamente()">Calcular novamente</span>
+        </div>
+        <div class="spans">
+            <span onclick="voltarMenu()">Voltar ao menu</span>
+            <span onclick="irParaCalculadoraDesperdicio()">Ir para a calculadora de desperdício</span>
+        </div>
+    </div>        
+    <div class="mainBox mainBoxResultado" id="mainBoxResultadoDesperdicio">
+            <br>
+            <br>
+            <br>
+            <br>
+        <div class="resultados">
+                <br>
+                <br>
+                <br>
+            <p>Você perderia cerca de <span id="spanPerderiaPeixe">xxx</span> peixes</p>
+                <br>
+            <p>Com nosso sistema seu desperdício será reduzido em 80%</p>
+                <br>
+            <p>Sabendo disso você perderá apenas <span id="spanApenasPerderaPeixe">xx</span> peixes</p>
+                <br>
+            <p>Além disso, poupará R$<span id="spanPoupara">xx</span></p>
+                <br>
+                <br>
+                <br>
+            <span class="calcularNovamente" onclick="calcularDesperdicioNovamente()">Calcular novamente</span>
+        </div>
+        <div class="spans">
+            <span onclick="voltarMenu()">Voltar ao menu</span>
+            <span onclick="irParaCalculadoraReceita()">Ir para a calculadora de receita</span>
+        </div>  
+    </div>
+
+   <div class="altura"></div>  
+
+   <div class="footer">
         <p>Feito com amor por um aluno BandTec © 2021</p>
     </div>
 </body>
 </html>
+
+<script>
+    function calcularReceita(){
+    opcoesCalculo.style.display = 'none';
+    mainBoxCalcularReceita.style.display = 'block';
+}
+
+function voltarMenu(){
+    mainBoxResultadoReceita.style.display = 'none';
+    mainBoxResultadoDesperdicio.style.display = 'none';
+    mainBoxEviteDesperdicio.style.display = 'none'
+    mainBoxCalcularReceita.style.display = 'none';
+    opcoesCalculo.style.display = 'block'
+
+}
+
+function eviteDesperdicio(){
+    opcoesCalculo.style.display = 'none';
+    mainBoxEviteDesperdicio.style.display = 'block'
+    
+    qntdPeixesQuePossui.value = '';
+    porcentagemDePerda.value = '';
+    valorMedioPeixe.value = '';
+
+    
+}
+
+function irParaCalculadoraReceita(){
+    mainBoxResultadoDesperdicio.style = 'none';
+    mainBoxEviteDesperdicio.style.display = 'none';
+    mainBoxCalcularReceita.style.display = 'block';
+    opcoesCalculo.style.display = 'none'
+}
+
+function irParaCalculadoraDesperdicio(){
+    mainBoxResultadoReceita.style.display = 'none';
+    mainBoxEviteDesperdicio.style.display = 'block';
+    mainBoxCalcularReceita.style.display = 'none';
+    opcoesCalculo.style.display = 'none'
+}
+
+function ock_calcularReceita(){
+    var ax_valorBruto = (qntdTilapiaVendida.value * valorDeVenda.value)
+    var ax_valorLiquido = (valorDeVenda.value - custoQuiloTilapia.value) * qntdTilapiaVendida.value
+    
+    mainBoxCalcularReceita.style.display = 'none';
+    mainBoxResultadoReceita.style.display = 'block';
+   
+    kgVendas.innerHTML = `${qntdTilapiaVendida.value}`;
+    receitaBruta.innerHTML = `${ax_valorBruto}`
+    receitaLiquida.innerHTML = `${ax_valorLiquido}`
+    
+    qntdTilapiaVendida.value = '';
+    valorDeVenda.value = '';
+    custoQuiloTilapia.value = '';
+
+}
+
+function calcularReceitaNovamente(){
+    mainBoxResultadoReceita.style.display = 'none';
+    mainBoxCalcularReceita.style.display = 'block';
+}
+
+
+function ock_calcularDesperdicio(){
+    mainBoxEviteDesperdicio.style.display = 'none';
+    mainBoxResultadoDesperdicio.style.display = 'block';
+}
+
+function calcularDesperdicioNovamente(){
+    mainBoxResultadoDesperdicio.style.display = 'none';
+    mainBoxEviteDesperdicio.style.display = 'block';
+}
+
+function ock_calcularDesperdicio(){
+
+    var ax_evite = qntdPeixesQuePossui.value * porcentagemDePerda.value / 100;
+    var ax_perda = ax_evite * 20 / 100;
+    var ax_ganhar = (ax_evite * 80 / 100) * valorMedioPeixe.value;
+
+    mainBoxResultadoDesperdicio.style.display = 'block';
+    mainBoxEviteDesperdicio.style.display = 'none';
+
+    spanPerderiaPeixe.innerHTML = `${ax_evite}`;
+    spanApenasPerderaPeixe.innerHTML = `${ax_perda}`;
+    spanPoupara.innerHTML = `${ax_ganhar.toFixed(2)}`
+
+    qntdPeixesQuePossui.value = '';
+    porcentagemDePerda.value = '';
+    valorMedioPeixe.value = '';
+
+
+}
+
+</script>
+

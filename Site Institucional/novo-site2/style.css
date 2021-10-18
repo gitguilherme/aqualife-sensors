@@ -346,3 +346,208 @@ body{
 .banner3 .divCadastro button:hover{
     background-color: #0497e0;
 }
+
+
+/* ----- CALCULADORA ---- */
+
+.mainBox{
+    margin: auto;
+    border-radius: 15px;
+    height: 700px;
+    width: 80vw;
+    background-color: #e5e5e5
+}
+
+.mainBox .boxCalculadora{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora div img{
+    height: 300px;
+    width: 300px;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora div{
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora div h3{
+    color:#007CB8;
+    font-weight: bolder;
+    margin: 25px 0;
+}
+
+
+.mainBox h2{
+    color: #007CB8;
+    padding-top: 3%;
+}
+
+.boxCalculadora{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.boxCalculadora p{
+    color: #007CB8;
+    font-size: 20px;
+}
+
+.inputCalculadora{
+    width: 40%;
+    text-align: center;
+    border-radius: 5px;
+    height: 20px;
+}
+
+.mainBox .boxCalculadora #spanCalcularReceita{
+    padding: 15px 50px;
+    background-color: #007CB8;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.mainBox .boxCalculadora .spans{
+    padding: 15px 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
+    text-align: center;
+}
+
+
+.mainBox .boxCalculadora .spans span{
+    margin-top: 70px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+
+.mainBox .boxCalculadora #spanCalcularDesperdicio{
+    padding: 15px 50px;
+    background-color: #007CB8;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+#mainBoxCalcularReceita {
+    display: none;
+}
+
+#mainBoxEviteDesperdicio{
+    display: none;
+}
+
+.mainBox .resultados{
+    border: #007CB8 solid 2px;
+    text-align: center;
+    margin: auto;
+    border-radius: 15px;
+    height: 500px;
+    width: 40vw;
+    background-color: rgb(195, 191, 191)
+}
+
+.mainBoxResultado{
+    align-items: center;
+    justify-content: center;
+}
+
+.mainBoxResultado .resultados p{
+    color: #007CB8;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+#mainBoxResultadoReceita{
+    display: none;
+}
+
+.calcularNovamente{
+    margin-top: 70px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder
+    
+}
+
+#mainBoxResultadoReceita .spans{
+    padding: 15px 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
+    text-align: center;
+}
+
+
+#mainBoxResultadoReceita .spans span{
+    margin-top: 10px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+#mainBoxResultadoDesperdicio{
+    display: none;
+}
+
+#mainBoxResultadoDesperdicio .spans{
+    padding: 15px 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
+    text-align: center;
+}
+
+#mainBoxResultadoDesperdicio .spans span{
+    margin-top: 10px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+#mainBoxResultadoDesperdicio{
+    margin-top: 20px;
+}
