@@ -80,7 +80,7 @@
             senhacorreta = 'User@2021'
         }
 
-        else if (email == "") {
+        if (email == "") {
             alert("preencha o campo de e-mail!")
         }
 
@@ -90,15 +90,14 @@
 
         else if (user == "") {
             alert("Selecione o tipo de usúario!")
-        }
-
-
-        if ((email == "adm@aqualife.com.br") && (password.length >= 8) && (user == "poweruser") && (password == senhacorreta)) {
+        }else if ((email == "adm@aqualife.com.br") && (password.length >= 8) && (user == "poweruser") && (password == senhacorreta)) {
             alert(`Bem vindo novamente ${email} !`)
+            location.href = 'dashboardsite.html';
         }
 
         else if ((email == "user@aqualife.com.br") && (password.length >= 8) && (user == "user") && (password == senhacorreta)) {
             alert(`Bem vindo novamente ${email} !`)
+            location.href = 'dashboardsite.html';
         }
         else {
             alert("Usúario e/ou senha incorretos, verifique e tente novamente!")
