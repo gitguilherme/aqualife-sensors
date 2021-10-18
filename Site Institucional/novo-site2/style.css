@@ -142,6 +142,17 @@ body{
     background-repeat: no-repeat;
     height: 400px;
 }
+@media (max-width: 1920px) {
+    .adCadastro{
+       height:500px; /*acha uma resolução correta pra o tamanho da tela*/
+       background-size: cover;
+    }
+}
+  @media (max-width: 1366px) {
+    .adCadastro{
+       height: 400px;/*acha uma resolução correta pra o tamanho da tela*/
+    }
+}
 .experimentar{
     width: 40%;
     float: left;
@@ -414,9 +425,12 @@ body{
 
 .inputCalculadora{
     width: 40%;
+    border: #007CB8 solid;
+    border-right: 0px;
+    border-top: 0px;
+    padding: 10px;
+    border-radius: 10px;
     text-align: center;
-    border-radius: 5px;
-    height: 20px;
 }
 
 .mainBox .boxCalculadora #spanCalcularReceita{
@@ -425,6 +439,10 @@ body{
     border-radius: 20px;
     color: #fff;
     font-weight: bolder;
+}
+
+.mainBox .boxCalculadora #spanCalcularReceita:hover{
+    background-color: #0497e0;
 }
 
 .mainBox .boxCalculadora .spans{
@@ -449,6 +467,10 @@ body{
     font-weight: bolder;
 }
 
+.mainBox .boxCalculadora .spans span:hover{
+    background-color: #0497e0;
+}
+
 
 .mainBox .boxCalculadora #spanCalcularDesperdicio{
     padding: 15px 50px;
@@ -456,6 +478,10 @@ body{
     border-radius: 20px;
     color: #fff;
     font-weight: bolder;
+}
+
+.mainBox .boxCalculadora #spanCalcularDesperdicio:hover{
+    background-color: #0497e0;
 }
 
 #mainBoxCalcularReceita {
@@ -472,7 +498,7 @@ body{
     margin: auto;
     border-radius: 15px;
     height: 500px;
-    width: 40vw;
+    width: 50vw;
     background-color: rgb(195, 191, 191)
 }
 
@@ -499,6 +525,9 @@ body{
     color: #fff;
     font-weight: bolder
     
+}
+.calcularNovamente:hover{
+    background-color: #0497e0;
 }
 
 #mainBoxResultadoReceita .spans{
