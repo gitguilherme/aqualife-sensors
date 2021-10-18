@@ -179,7 +179,7 @@ body{
 }
 
 .banner2 .divlogin {
-    background-color: white;
+    background-color: #e5e5e5;
     height: 500px;
     width: 30%;
     display: flex;
@@ -318,7 +318,7 @@ body{
 }
 
 .banner3 .divCadastro{
-    background-color: white;
+    background-color: #e5e5e5;
     height: 700px;
     width: 40%;
     display: flex;
