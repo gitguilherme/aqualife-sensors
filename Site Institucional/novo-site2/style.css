@@ -111,9 +111,9 @@ body{
     width: 25vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: justify;
+    padding: 15px;
 }
 .proposito .container .mvv div h3{
     color:#007CB8;
@@ -287,6 +287,7 @@ body{
 .alertas div div{
     display: flex;
     justify-content: center;
+    
 }
 .graficos{
     display: flex;

@@ -27,11 +27,11 @@
             <div class="opcoesCalculadora">
                 <div>
                     <h3>Calcular receita</h3>
-                    <img src="https://cdn-icons-png.flaticon.com/512/1573/1573396.png" onclick="calcularReceita()" alt="">
+                    <img src="https://media.discordapp.net/attachments/887821033283911685/901560416839274496/FOTO-PNG-ANALITCS1.png?width=473&height=473" onclick="calcularReceita()" alt="aa">
                 </div>
                 <div>
                     <h3>Evite desperdício</h3>
-                    <img src="https://cdn-icons-png.flaticon.com/512/1573/1573396.png" onclick="eviteDesperdicio()" alt="">
+                    <img src="https://cdn.discordapp.com/attachments/887821033283911685/901560407980920892/FOTO-MONEY-PNG1.png" onclick="eviteDesperdicio()" alt="">
                 </div>
             </div>
         </div>
@@ -43,17 +43,17 @@
                 <br>
             <p>Digite a quantidade quilogramas de tilápias vendidas:</p>
                 <br>
-            <input type="text" class="inputCalculadora" id="qntdTilapiaVendida" placeholder="Quantidade(Kg) de tilápias vendidas">
+            <input type="number" class="inputCalculadora" id="qntdTilapiaVendida" placeholder="Quantidade(Kg) de tilápias vendidas">
                 <br>
                 <br>
             <p>Digite o preço de venda da tilápia por quilograma:</p>
                 <br>
-            <input type="text" class="inputCalculadora" id="valorDeVenda" placeholder="Preço de venda(Kg)">
+            <input type="number" class="inputCalculadora" id="valorDeVenda" placeholder="Preço de venda(Kg)">
                 <br>
                 <br>
             <p>Digite o custo por quilograma da tilápia:</p>
                 <br>
-            <input type="text" class="inputCalculadora" id="custoQuiloTilapia" placeholder="Custo da tilápia(Kg)">
+            <input type="number" class="inputCalculadora" id="custoQuiloTilapia" placeholder="Custo da tilápia(Kg)">
                 <br>
                 <br>
             <span id="spanCalcularReceita" onclick="ock_calcularReceita()">Calcular receita</span>
@@ -70,17 +70,17 @@
                 <br>
             <p>Digite quantos peixes você possui:</p>
                 <br>
-            <input type="text" class="inputCalculadora" id="qntdPeixesQuePossui" placeholder="Quantidade de peixes que possui">
+            <input type="number" class="inputCalculadora" id="qntdPeixesQuePossui" placeholder="Quantidade de peixes que possui">
                 <br>
                 <br>
             <p>Digite a % de sua perda de peixes:</p>
                 <br>
-            <input type="text" class="inputCalculadora" id="porcentagemDePerda" placeholder="Porcentagem de perda de peixes">
+            <input type="number" class="inputCalculadora" id="porcentagemDePerda" placeholder="Porcentagem de perda de peixes">
                 <br>
                 <br>
             <p>Digite o valor médio do peixe:</p>
                 <br>
-            <input type="text" class="inputCalculadora" id="valorMedioPeixe" placeholder="Valor médio do peixe">
+            <input type="number" class="inputCalculadora" id="valorMedioPeixe" placeholder="Valor médio do peixe">
                 <br>
                 <br>
             <span id="spanCalcularDesperdicio" onclick="ock_calcularDesperdicio()">Calcular desperdício</span>
@@ -161,7 +161,15 @@ function voltarMenu(){
     mainBoxResultadoDesperdicio.style.display = 'none';
     mainBoxEviteDesperdicio.style.display = 'none'
     mainBoxCalcularReceita.style.display = 'none';
-    opcoesCalculo.style.display = 'block'
+    opcoesCalculo.style.display = 'block';
+
+    qntdPeixesQuePossui.value = '';
+    porcentagemDePerda.value = '';
+    valorMedioPeixe.value = '';
+
+    qntdTilapiaVendida.value = '';
+    valorDeVenda.value = '';
+    custoQuiloTilapia.value = '';    
 
 }
 
@@ -172,8 +180,6 @@ function eviteDesperdicio(){
     qntdPeixesQuePossui.value = '';
     porcentagemDePerda.value = '';
     valorMedioPeixe.value = '';
-
-    
 }
 
 function irParaCalculadoraReceita(){
@@ -181,6 +187,10 @@ function irParaCalculadoraReceita(){
     mainBoxEviteDesperdicio.style.display = 'none';
     mainBoxCalcularReceita.style.display = 'block';
     opcoesCalculo.style.display = 'none'
+
+    qntdPeixesQuePossui.value = '';
+    porcentagemDePerda.value = '';
+    valorMedioPeixe.value = '';
 }
 
 function irParaCalculadoraDesperdicio(){
@@ -188,6 +198,10 @@ function irParaCalculadoraDesperdicio(){
     mainBoxEviteDesperdicio.style.display = 'block';
     mainBoxCalcularReceita.style.display = 'none';
     opcoesCalculo.style.display = 'none'
+
+    qntdTilapiaVendida.value = '';
+    valorDeVenda.value = '';
+    custoQuiloTilapia.value = '';
 }
 
 function ock_calcularReceita(){
