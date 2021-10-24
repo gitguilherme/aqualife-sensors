@@ -287,12 +287,13 @@ body{
 .alertas div div{
     display: flex;
     justify-content: center;
-    
+    width: 250px;
 }
 .graficos{
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    margin-top: 15px;
 }
 .grafico{
     width: 45%;

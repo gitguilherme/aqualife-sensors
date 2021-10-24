@@ -192,54 +192,64 @@
                 chart.data.labels.push(this.time++);
                 chart.data.datasets[0].data.push(parseFloat(data));
 
-
-                if (data >= 31) {
-                    imgAlertTemperatura.src = 'img/alertVermelho.png';
+                
+                if (data >= 34) {
+                    imgAlertTemperatura.src = 'img/alertDarkRed.png';
                     msgAlertaTemperatura.innerHTML = "Temperatura crítica: acima do desejado, pode ocorrer perda";
                     chart.data.datasets[0].backgroundColor = 'darkred';
                 }
+                else if (data >= 32) {
+                    imgAlertTemperatura.src = 'img/alertOrange.png';
+                    msgAlertaTemperatura.innerHTML = "Temperatura próxima de crítica";
+                    chart.data.datasets[0].backgroundColor = 'orange';
+                }
+                else if (data >= 31) {
+                    imgAlertTemperatura.src = 'img/alertYellow.png';
+                    msgAlertaTemperatura.innerHTML = "Temperatura próxima de crítica";
+                    chart.data.datasets[0].backgroundColor = 'yellow';
+                }
                 else if (data >= 26) {
-                    imgAlertTemperatura.src = 'img/checkVerde.png';
+                    imgAlertTemperatura.src = 'img/checkLightGreen.png';
                     msgAlertaTemperatura.innerHTML = "Temperatura OK: Tamanho grande";
                     chart.data.datasets[0].backgroundColor = 'lightgreen';
                 }
                 else if (data >= 23) {
-                    imgAlertTemperatura.src = 'img/checkVerde.png';
+                    imgAlertTemperatura.src = 'img/checkLightGreen.png';
                     msgAlertaTemperatura.innerHTML = "Temperatura OK: Tamanho médio";
-                    chart.data.datasets[0].backgroundColor = 'orange';
+                    chart.data.datasets[0].backgroundColor = 'lightgreen';
 
                 }
                 else if (data >= 19) {
-                    imgAlertTemperatura.src = 'img/alertAmarelo.png';
+                    imgAlertTemperatura.src = 'img/alertSkyBlue.png';
                     msgAlertaTemperatura.innerHTML = "Temperatura com taxa de crescimento reduzida";
-                    chart.data.datasets[0].backgroundColor = 'yellow';
+                    chart.data.datasets[0].backgroundColor = 'skyblue';
 
                 }
-                else if (data >= 18 && data <= 18.99) {
-                    imgAlertTemperatura.src = 'img/alertAmarelo.png';
+                else if (data >= 18) {
+                    imgAlertTemperatura.src = 'img/alertDodgerBlue.png';
                     msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a reprodução é interrompida";
-                    chart.data.datasets[0].backgroundColor = 'ebeccapurple';
+                    chart.data.datasets[0].backgroundColor = 'dodgerblue';
                 }
-                else if (data >= 17 && data <= 17.99) {
-                    imgAlertTemperatura.src = 'img/alertAmarelo.png';
-                    msgAlertaTemperatura.innerHTML = "Temperatura com taxa de crescimento reduzida e reprodução interrompida";
-                    chart.data.datasets[0].backgroundColor = 'grey';
+                else if (data >= 17) {
+                    imgAlertTemperatura.src = 'img/alertDodgerBlue.png';
+                    msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a reprodução é interrompida";
+                    chart.data.datasets[0].backgroundColor = 'dodgerblue';
                 }
-                else if (data >= 16 && data <= 16.99) {
-                    imgAlertTemperatura.src = 'img/alertAmarelo.png';
+                else if (data >= 16) {
+                    imgAlertTemperatura.src = 'img/alertDodgerBlue.png';
                     msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a alimentação é interrompida";
-                    chart.data.datasets[0].backgroundColor = 'brown';
+                    chart.data.datasets[0].backgroundColor = 'dodgerblue';
                 }
                 else if (data >= 11) {
-                    imgAlertTemperatura.src = 'img/alertAmarelo.png';
+                    imgAlertTemperatura.src = 'img/alertBlue.png';
                     msgAlertaTemperatura.innerHTML = "Temperatura com taxa de crescimento prejudicada, reprodução e alimentação interrompida";
-                    chart.data.datasets[0].backgroundColor = 'arkslategrey';
+                    chart.data.datasets[0].backgroundColor = 'blue';
 
                 }
                 else {
                     msgAlertaTemperatura.innerHTML = "Risco de morte";
-                    chart.data.datasets[0].backgroundColor = 'red';
-                    imgAlertTemperatura.src = 'img/alertVermelho.png';
+                    chart.data.datasets[0].backgroundColor = 'darkblue';
+                    imgAlertTemperatura.src = 'img/alertDarkBlue.png';
                 }
 
                 chart.update();
@@ -258,22 +268,22 @@
                 chart2.data.datasets[0].data.push(parseFloat(data));
 
                 if (data >= 100) {
-                    imgAlertTurbidez.src = 'img/alertVermelho.png';
+                    imgAlertTurbidez.src = 'img/alertRed.png';
                     msgAlertaTurbidez.innerHTML = "Turbidez crítica";
                     chart2.data.datasets[0].backgroundColor = 'red';
                 } else if (data >= 83.4) {
-                    imgAlertTurbidez.src = 'img/alertAmarelo.png';
+                    imgAlertTurbidez.src = 'img/alertOrange.png';
                     msgAlertaTurbidez.innerHTML = "Turbidez próxima de crítica";
                     chart2.data.datasets[0].backgroundColor = 'orange';
 
 
                 } else if (data >= 66.67) {
-                    imgAlertTurbidez.src = 'img/alertAmarelo.png';
+                    imgAlertTurbidez.src = 'img/alertYellow.png';
                     msgAlertaTurbidez.innerHTML = "Alerta!";
                     chart2.data.datasets[0].backgroundColor = 'yellow';
 
                 } else {
-                    imgAlertTurbidez.src = 'img/checkVerde.png';
+                    imgAlertTurbidez.src = 'img/checkLightGreen.png';
                     msgAlertaTurbidez.innerHTML = "Turbidez ok";
                     chart2.data.datasets[0].backgroundColor = 'lightgreen';
 

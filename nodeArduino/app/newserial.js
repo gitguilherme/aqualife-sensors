@@ -20,7 +20,7 @@ class ArduinoRead {
 
     fake_data() {
         setInterval(() => {
-            let data_float = sensors.lm35(20, 30);
+            let data_float = sensors.lm35(8, 20);
 
             let luminosidade = sensors.ldr();
 
