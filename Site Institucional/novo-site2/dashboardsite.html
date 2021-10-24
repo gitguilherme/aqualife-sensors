@@ -78,7 +78,7 @@
 
     <div class="altura"></div>
     <div class="footer">
-        <p>Feito com amor por um aluno BandTec © 2021</p>
+        <p>©2021 — Aqualife Sensors Todos os direitos reservados.</p>
     </div>
 
     <script>
@@ -211,7 +211,7 @@
                 else if (data >= 26) {
                     imgAlertTemperatura.src = 'img/checkLightGreen.png';
                     msgAlertaTemperatura.innerHTML = "Temperatura OK: Tamanho grande";
-                    chart.data.datasets[0].backgroundColor = 'lightgreen';
+                    chart.data.datasets[0].backgroundColor = 'green';
                 }
                 else if (data >= 23) {
                     imgAlertTemperatura.src = 'img/checkLightGreen.png';
@@ -234,22 +234,24 @@
                     imgAlertTemperatura.src = 'img/alertDodgerBlue.png';
                     msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a reprodução é interrompida";
                     chart.data.datasets[0].backgroundColor = 'dodgerblue';
+
                 }
                 else if (data >= 16) {
-                    imgAlertTemperatura.src = 'img/alertDodgerBlue.png';
+                    imgAlertTemperatura.src = 'img/alertBlue.png';
                     msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a alimentação é interrompida";
-                    chart.data.datasets[0].backgroundColor = 'dodgerblue';
+                    chart.data.datasets[0].backgroundColor = 'blue';
                 }
                 else if (data >= 11) {
-                    imgAlertTemperatura.src = 'img/alertBlue.png';
+                    imgAlertTemperatura.src = 'img/alertRoyalBlue.png';
                     msgAlertaTemperatura.innerHTML = "Temperatura com taxa de crescimento prejudicada, reprodução e alimentação interrompida";
-                    chart.data.datasets[0].backgroundColor = 'blue';
+                    chart.data.datasets[0].backgroundColor = 'royalblue';
 
                 }
                 else {
                     msgAlertaTemperatura.innerHTML = "Risco de morte";
                     chart.data.datasets[0].backgroundColor = 'darkblue';
                     imgAlertTemperatura.src = 'img/alertDarkBlue.png';
+
                 }
 
                 chart.update();
@@ -285,7 +287,7 @@
                 } else {
                     imgAlertTurbidez.src = 'img/checkLightGreen.png';
                     msgAlertaTurbidez.innerHTML = "Turbidez ok";
-                    chart2.data.datasets[0].backgroundColor = 'lightgreen';
+                    chart2.data.datasets[0].backgroundColor = 'green';
 
                 }
                 chart2.update();

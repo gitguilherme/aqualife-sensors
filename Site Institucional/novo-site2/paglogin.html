@@ -25,16 +25,7 @@
     <div class="banner2">
         <div class="divlogin">
             <h3>Bem vindo!</h3>
-
-            <div id="useraqualife">
-                <span>Selecione o Usuário </span>
-                <select id="typeuser">
-                    <option value="">Selecione o usúario</option>
-                    <option value="poweruser">Power User</option>
-                    <option value="user">User</option>
-                </select>
-            </div>
-
+           
             <div>
                 <span>E-mail: </span>
                 <input id="emailuser" type="text" placeholder="Insira o e-mail para login">
@@ -58,7 +49,7 @@
     <div class="altura"></div>
     <div class="altura"></div>
     <div class="footer">
-        <p>Feito com amor por um aluno BandTec © 2021</p>
+        <p> ©2021 — Aqualife Sensors Todos os direitos reservados.</p>
     </div>
 </body>
 
@@ -69,14 +60,15 @@
     function entrar() {
 
         var email = emailuser.value
-        var user = typeuser.value
         var password = senhauser.value
         var senhacorreta = ''
 
-        if ((email == "adm@aqualife.com.br") && (password.length >= 8) && (user == "poweruser")) {
+
+
+        if ((email == "adm@aqualife.com.br") && (password.length >= 8)) {
             senhacorreta = 'Admin@2021'
         }
-        else if ((email = "user@aqualife.com.br") && (password.length >= 8) && (user == "user")) {
+        else if ((email == "user@aqualife.com.br") && (password.length >= 8)) {
             senhacorreta = 'User@2021'
         }
 
@@ -87,15 +79,13 @@
         else if (password == "") {
             alert("Preencha o campo de senha!")
         }
-
-        else if (user == "") {
-            alert("Selecione o tipo de usúario!")
-        }else if ((email == "adm@aqualife.com.br") && (password.length >= 8) && (user == "poweruser") && (password == senhacorreta)) {
+        
+        else if ((email == "adm@aqualife.com.br") && (password.length >= 8) && (password == senhacorreta)) {
             alert(`Bem vindo novamente ${email} !`)
             location.href = 'dashboardsite.html';
         }
 
-        else if ((email == "user@aqualife.com.br") && (password.length >= 8) && (user == "user") && (password == senhacorreta)) {
+        else if ((email == "user@aqualife.com.br") && (password.length >= 8) && (password == senhacorreta)) {
             alert(`Bem vindo novamente ${email} !`)
             location.href = 'dashboardsite.html';
         }
