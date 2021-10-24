@@ -169,6 +169,7 @@ body{
     border-radius: 20px;
     color: white;
     font-weight: bolder;
+    transition-duration: 0.4s;
 }
 .experimentar span a{
     text-decoration: none;
