@@ -16,7 +16,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   valorLM35 = analogRead(sensorLM35);
-  delay(100);
+  valorLM35 = analogRead(sensorLM35);
   
   valorLDR = analogRead(sensorLDR);
 
