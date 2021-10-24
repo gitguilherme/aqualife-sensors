@@ -222,7 +222,9 @@ body{
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 10px;   
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;   
 }
 .banner2 .divlogin button:hover{
     background-color: #0497e0;
@@ -321,7 +323,7 @@ body{
 
 .banner3 .divCadastro{
     background-color: #e5e5e5;
-    height: 770px;
+    height: 800px;
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -340,6 +342,23 @@ body{
 .banner3 .divCadastro div span{
     color: #007CB8;
     margin-bottom: 5px;
+}
+.banner3 .divCadastro div p{
+    padding: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+.banner3 .divCadastro div p a{
+    color: #007CB8;
+    transition-duration: 0.4s;
+}
+.banner3 .divCadastro div p a:hover{
+    color: white;
+    background-color: #007CB8;
+    padding: 8px;
+    border-radius: 15px;
+    text-decoration: none;
 }
 .banner3 .divCadastro div input{
     border: #007CB8 solid;
