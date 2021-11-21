@@ -1,0 +1,637 @@
+* {
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url(https://i.imgur.com/PLqQzbT.jpg) center center no-repeat fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.header{
+    height: 60px;
+    background: rgb(0,123,184);
+    background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%); 
+}
+.container{
+    height: 100%;
+    width: 80%;
+    margin: auto;
+}
+.header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container img{
+    margin-top: 8px;
+    height: 44px;
+    width: 122px;
+}
+.navbar{
+    display: flex;
+    list-style: none;
+    width: 50%;
+    justify-content: space-evenly;
+}
+.navbar li{
+    color: #007CB8;
+}
+.navbar li a{
+    color: #007CB8;
+    text-decoration: none;
+    padding: 12px;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+.navbar li a:hover{
+    background-color: #007CB8;
+    color: white;
+}
+.navbar .active {
+    font-weight: bolder;
+}
+
+.banner{
+    height: 460px;
+    /* background-image: url(https://i.imgur.com/PLqQzbT.jpg); */
+    background-size: cover;
+    background-position: 0vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .message{
+    margin-right: 300px;
+    width: 16%;
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+}
+#iconMouse{
+    display: flex;
+    padding-bottom: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+.proposito{
+    margin: auto;
+    border-radius: 15px;
+    height: 500px;
+    width: 80vw;
+    background-color: #e5e5e5;
+}
+
+.proposito .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.proposito .container h2{
+    color:#007CB8;
+    border-radius: 25px;
+}
+.proposito .container .mvv{
+    margin-top: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.proposito .container .mvv div img{
+    height: 100px;
+    width: 100px;
+}
+.proposito .container .mvv div{
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    padding: 15px;
+}
+.proposito .container .mvv div h3{
+    color:#007CB8;
+    font-weight: bolder;
+    margin: 25px 0;
+}
+.proposito .container .mvv div p{
+    font-weight: bold;
+}
+.footer{
+    background-color: #233c72;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer p{
+    color: white;
+}
+.altura{
+    height: 100px;
+}
+.adCadastro{
+    background-image: url(img/bannercadastro.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+}
+@media (max-width: 1920px) {
+    .adCadastro{
+       height:500px; /*acha uma resolução correta pra o tamanho da tela*/
+       background-size: cover;
+    }
+}
+  @media (max-width: 1366px) {
+    .adCadastro{
+       height: 400px;/*acha uma resolução correta pra o tamanho da tela*/
+    }
+}
+.experimentar{
+    width: 40%;
+    float: left;
+    padding-top: 60px;
+}
+.experimentar h4{
+    color: #007CB8;
+    line-height: 60px;
+    font-size: 30px;
+}
+.experimentar span{
+    padding: 15px 50px;
+    background-color: #007CB8;
+    border-radius: 20px;
+    color: white;
+    font-weight: bolder;
+    transition-duration: 0.4s;
+}
+.experimentar span a{
+    text-decoration: none;
+    color: white;
+}
+.experimentar span:hover{
+    background-color: #0497e0;
+}
+
+.banner2 .divlogin  {
+    background-color: #e5e5e5;
+    height: 500px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    border-radius: 20px; 
+    padding: 13px 0px;  
+    text-decoration: none;
+}
+
+
+.banner2 .divlogin h2 {
+    color: #394347;
+    }
+
+.banner2 .divlogin div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+.banner2 .divlogin div span {
+    color: #007CB8;
+    margin-bottom: 10px;
+    }
+
+.banner2 .divlogin div input {
+    border: 3px solid #007CB8;
+    border-radius: 10px;
+    padding: 10px;
+    border-right: 0px;
+    border-top: 0px;
+    }
+
+.banner2 .divlogin button {
+    background-color: #007CB8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer;   
+}
+.banner2 .divlogin button:hover{
+    background-color: #0497e0;
+}
+.button .divlogin button a{
+    text-decoration: none;
+}
+
+.divConteiner{
+    margin: auto;
+    border-radius: 35px;
+    height: 500px;
+    width: 70vw;
+    height: 80vh;
+    background-color: #e5e5e5;
+}    
+
+.divConteiner .Conteiner .tituloPrincipal{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    color: #007cb8;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.opcoesCalculos {
+    width: 500px;
+    height: 300px;
+}
+
+
+.subTitulo #calcularReceita {
+    width: 250px;
+    margin-left: 250px;
+    padding-top: 50px;
+    color: #007CB8;
+    font-weight: bolder;
+}
+
+.divConteiner .Conteiner .opcoesCalculos img{
+    width: 350px;
+    margin-left: 140px;
+    margin-top: 50px;
+}
+.dashboard{
+    background-color: white;
+    width: 80vw;
+    margin: auto; 
+    border-radius: 20px;  
+    text-decoration: none;
+}
+.alertas{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+.alertas div{
+    margin-top: 10px;
+    
+}
+.alertas div div{
+    display: flex;
+    justify-content: center;
+    width: 250px;
+}
+.graficos{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 15px;
+}
+.grafico{
+    width: 45%;
+}
+.grafico h1{
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.medias{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.medias label{
+    font-size: 20px;
+}
+
+.banner3{
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.banner3 .divCadastro{
+    background-color: #e5e5e5;
+    height: 800px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 70px;
+}
+.banner3 .divCadastro div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+.banner3 .divCadastro div span{
+    color: #007CB8;
+    margin-bottom: 5px;
+}
+.banner3 .divCadastro div p{
+    padding: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+.banner3 .divCadastro div p a{
+    color: #007CB8;
+    transition-duration: 0.4s;
+}
+.banner3 .divCadastro div p a:hover{
+    color: white;
+    background-color: #007CB8;
+    padding: 8px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+.banner3 .divCadastro div input{
+    border: #007CB8 solid;
+    border-right: 0px;
+    border-top: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+.banner3 .divCadastro button{
+    background-color: #007CB8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.banner3 .divCadastro button a{
+    color: white;
+    text-decoration: none;
+}
+.banner3 .divCadastro button:hover{
+    background-color: #0497e0;
+}
+
+
+/* ----- CALCULADORA ---- */
+
+.mainBox{
+    margin: auto;
+    border-radius: 15px;
+    height: 700px;
+    width: 80vw;
+    background-color: #e5e5e5
+}
+
+.mainBox .boxCalculadora{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora div img{
+    height: 300px;
+    width: 300px;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora div{
+    width: 45vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.mainBox .boxCalculadora .opcoesCalculadora div h3{
+    color:#007CB8;
+    font-weight: bolder;
+    margin: 25px 0;
+}
+
+
+.mainBox h2{
+    color: #007CB8;
+    padding-top: 3%;
+}
+
+.boxCalculadora{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.boxCalculadora p{
+    color: #007CB8;
+    font-size: 20px;
+}
+
+.inputCalculadora{
+    width: 40%;
+    border: #007CB8 solid;
+    border-right: 0px;
+    border-top: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.mainBox .boxCalculadora #spanCalcularReceita{
+    padding: 15px 50px;
+    background-color: #007CB8;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    transition-duration: 0.4s;
+}
+
+.mainBox .boxCalculadora #spanCalcularReceita:hover{
+    background-color: #0497e0;
+}
+
+.mainBox .boxCalculadora .spans{
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
+    text-align: center;
+}
+
+
+.mainBox .boxCalculadora .spans span{
+    margin-top: 70px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder;
+    transition-duration: 0.4s;
+}
+
+.mainBox .boxCalculadora .spans span:hover{
+    background-color: #0497e0;
+}
+
+
+.mainBox .boxCalculadora #spanCalcularDesperdicio{
+    padding: 15px 50px;
+    background-color: #007CB8;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    transition-duration: 0.4s;
+}
+
+.mainBox .boxCalculadora #spanCalcularDesperdicio:hover{
+    background-color: #0497e0;
+}
+
+#mainBoxCalcularReceita {
+    display: none;
+}
+
+#mainBoxEviteDesperdicio{
+    display: none;
+}
+
+.mainBox .resultados{
+    border: #007CB8 solid 2px;
+    text-align: center;
+    margin: auto;
+    border-radius: 15px;
+    height: 500px;
+    width: 50vw;
+    background-color: rgb(195, 191, 191)
+}
+
+.mainBoxResultado{
+    align-items: center;
+    justify-content: center;
+}
+
+.mainBoxResultado .resultados p{
+    color: #007CB8;
+    font-size: 30px;
+    font-weight: bolder;
+}
+.mainBoxResultado .resultados b{
+    font-size: 20px;
+    color: #007cb8;
+}
+.mainBoxResultado .resultados b a{
+    color: #007cb8;
+    font-size: 18px;
+    transition-duration: 0.4s;
+}
+.mainBoxResultado .resultados b a:hover{
+    color: white;
+    background-color: #007CB8;
+    padding: 8px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+#mainBoxResultadoReceita{
+    display: none;
+}
+
+.calcularNovamente{
+    margin-top: 70px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder;
+    transition-duration: 0.4s;
+}
+.calcularNovamente:hover{
+    background-color: #0497e0;
+}
+
+#mainBoxResultadoReceita .spans{
+    padding: 15px 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
+    text-align: center;
+}
+
+
+#mainBoxResultadoReceita .spans span{
+    margin-top: 10px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder;
+    transition-duration: 0.4s;
+}
+#mainBoxResultadoReceita .spans span:hover{
+    background-color: #0497e0;
+}
+
+#mainBoxResultadoDesperdicio{
+    display: none;
+}
+
+#mainBoxResultadoDesperdicio .spans{
+    padding: 15px 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 75vw;
+    text-align: center;
+}
+
+#mainBoxResultadoDesperdicio .spans span{
+    margin-top: 10px;
+    padding: 20px 50px;
+    background-color: #007CB8;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bolder;
+    transition-duration: 0.4s;
+}
+#mainBoxResultadoDesperdicio .spans span:hover{
+    background-color: #0497e0;
+}
+
+#mainBoxResultadoDesperdicio{
+    margin-top: 20px;
+}
