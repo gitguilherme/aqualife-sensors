@@ -8,7 +8,9 @@ create table Empresa(
 idEmpresa int primary key auto_increment,
 Nome varchar(80),
 CNPJ char(14),
-Endereco varchar(150))auto_increment = 101;
+CEP char(8),
+Numero varchar(45),
+Complemento varchar(45))auto_increment = 101;
 -- -----------------------------------------------------
 -- Tabela Tanques 
 create table Tanque(
@@ -63,10 +65,10 @@ foreign key (fkTanque) references Tanque (idTanque));
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Inserir dados (Empresa)
-insert into Empresa (Nome, CNPJ, Endereco) values
-('Peixe Fresco',12345432167890,'Rua Um, 2, São Paulo - São Paulo'), -- 101
-('Rio Doce Piscicultura',09876512345678,'Rua Amarela, 10, Curitiba - Paraná'), -- 102
-('Fisher Piscicultura',56789012345678,'Estrada Banco, 372, Florianópolis - Santa Catarina'); -- 103
+insert into Empresa (Nome, CNPJ, CEP, Numero, Complemento) values
+('Peixe Fresco',12345432167890, 04447025, 12.500, null), -- 101
+('Rio Doce Piscicultura',09876512345678, 05065098, 6.234, null), -- 102
+('Fisher Piscicultura',56789012345678, 08749030, 500, null); -- 103
 -- -----------------------------------------------------
 select*from Empresa;
 -- -----------------------------------------------------
