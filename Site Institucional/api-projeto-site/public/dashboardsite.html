@@ -13,19 +13,51 @@
   <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
 </head>
 
-<body>
+<body><!--
   <div class="header">
     <div class="container">
-      <div class="logo"><img src="img/nome_logo.png" /></div>
+      <div class="logo"><txt src="" /></div>
       <ul class="navbar">
         <li><a href="">Informações da empresa</a></li>
         <li><a href="" class="active">Informações dos tanques</a></li>
         <li><a href="index.html">Sair</a></li>
       </ul>
     </div>
-  </div>
+  </div>-->
+  <div class="header-left">
+    <div class="logo"><img src="img/nome_logo.png" width="120px" height="65px"/></div>
+
+
+    <div class="hello">
+        <h3>Bem vindo <span id="b_usuario" ></span>!</h3>
+    </div>
+
+    <div class="btn-nav-white">
+        <a href="./cards.html">
+            Início
+        </a>
+    </div>
+
+    <div class="btn-nav">
+
+      <a href="./mural.html">
+        Tanques
+    </a>
+
+    </div>
+
+
+
+    <div class="btn-logout" onclick="limparSessao()">
+        <a href="./mural.html">
+            Sair
+        </a>
+    </div>
+
+</div>
+
   <br /><br /><br /><br /><br /><br />
-  <div class="banner2">
+  <div class="banner2 dash">
     <div class="dashboard">
       <div class="alertas">
         <div id="alertTemperatura">

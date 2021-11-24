@@ -11,6 +11,37 @@ body{
   -o-background-size: cover;
   background-size: cover;
 }
+.header-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-right: 3px solid #32B9CD;
+    background: rgb(0,123,184);
+    background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%); 
+
+    /* border: 3px solid pink; */
+}
+
+.header-left a{
+    text-decoration: none;
+    color: #007CB8;
+    text-decoration: none;
+    padding: 25px;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+.header-left a:hover{
+    color: white;
+    background-color: #007CB8;
+}
 
 .header{
     height: 60px;
@@ -230,6 +261,7 @@ body{
 .banner2 .divlogin button:hover{
     background-color: #0497e0;
 }
+
 .button .divlogin button a{
     text-decoration: none;
 }
@@ -273,8 +305,8 @@ body{
 }
 .dashboard{
     background-color: white;
-    width: 80vw;
-    margin: auto; 
+    width: 76%;
+    margin-left: 280px; 
     border-radius: 20px;  
     text-decoration: none;
 }
