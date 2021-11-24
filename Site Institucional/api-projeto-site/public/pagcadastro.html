@@ -32,44 +32,114 @@
                     <option value="">User</option>
                 </select>
             </div>
-            <div>
-                <span>Nome da empresa:</span>
-                <input type="text" placeholder="Nome da empresa (Ex: Aqualife Sensors)">
-            </div>
-            <div>
-                <span>CNPJ:</span>
-                <input type="text" placeholder="CNPJ (Ex: 123456780001XX)">
-            </div>
-            <div>
-                <span>Endereço:</span>
-                <input type="text" placeholder="Endereço (Ex: Rua, Bairro, nº e etc...)">
-            </div>
-            <div>
-                <span>E-mail:</span>
-                <input type="email" placeholder="Digite seu e-mail (Ex: exemplo@aqualife.com.br)">
-            </div>
-            <div>
-                <span>Confirme seu Email:</span>
-                <input type="email" placeholder="Confirme seu e-mail">
-            </div>
-            <div>
-                <span>Senha:</span>
-                <input type="password" placeholder="Digite sua senha">
-            </div>
-            <div>
-                <span>Confirme sua senha:</span>
-                <input type="password" placeholder="Confirme sua senha">
-            </div>
-            <a href="paglogin.html"><button>Criar Conta</button></a>
-            <div>
-                <p class="possuiLogin">Já possuí cadastro? <a href="paglogin.html">Faça o login!</a></b>
-            </div>
+            <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+                <div>
+                    <span>Nome da empresa:</span>
+                    <input name="nome" type="text" placeholder="Nome da empresa (Ex: Aqualife Sensors)">
+                </div>
+                <div>
+                    <span>CNPJ:</span>
+                    <input name="cnpj" type="text" placeholder="CNPJ (Ex: 123456780001XX)">
+                </div>
+                <div>
+                    <span>CEP:</span>
+                    <input name="cep" type="text" placeholder="CEP (Ex: 12345678)">
+                </div>
+                <div>
+                    <span>Número:</span>
+                    <input name="numero" type="text" placeholder="Número (Ex: 123)">
+                </div>
+                <div>
+                    <span>Complemento:</span>
+                    <input name="complemento" type="text" placeholder="CEP (Ex: Casa1, Casa2)">
+                </div>
+                <div>
+                    <span>E-mail:</span>
+                    <input name="email" type="email" placeholder="Digite seu e-mail (Ex: exemplo@aqualife.com.br)">
+                </div>
+                <div>
+                    <span>Senha:</span>
+                    <input name="senha" type="password" placeholder="Digite sua senha">
+                </div>
+                <div>
+                    <span>Confirme sua senha:</span>
+                    <input name="confirmacao-senha" type="password" placeholder="Confirme sua senha">
+                </div>
+                <button>Criar Conta</button>
+                <div>
+            </form>
+            <p class="possuiLogin">Já possuí cadastro? <a href="paglogin.html">Faça o login!</a></b>
         </div>
+    </div>
     </div>
     <div class="altura"></div>
     <div class="footer">
         <p>©2021 — Aqualife Sensors Todos os direitos reservados.</p>
     </div>
 </body>
-
 </html>
+<script>
+    function cadastrar() {
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome = formulario.get("nome");
+        var cnpj = formulario.get("cnpj");
+        var cep = formulario.get("cep");
+        var numero = formulario.get("numero");
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+        var confirmacaoSenha = formulario.get("confirmacao-senha");
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "") {
+            
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome == "")  {
+                console.log('nome está em branco')
+            }
+            if (email == "" )  {
+                console.log('email está em branco')
+            }
+            if (senha == "" )  {
+                console.log('senha está em branco')
+            }
+            if (confirmacaoSenha == "" )  {
+                console.log('confirmacaoSenha está em branco')
+            }
+
+            return false;
+        }
+        
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+
+            return false;
+        }
+        
+        if (senha != confirmacaoSenha) {
+            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+            return false;
+        }
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "paglogin.html";
+                limparFormulario();
+            } else {
+                throw("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+</script>
