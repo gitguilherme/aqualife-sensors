@@ -78,7 +78,7 @@ function entrar() {
             return false;
         }
 
-        fetch("/usuarios/autenticar", {
+        fetch("/empresa/autenticar", {
             method: "POST",
             body: formulario
         }).then(function (resposta) {
