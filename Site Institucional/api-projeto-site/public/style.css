@@ -306,7 +306,9 @@ body{
 .dashboard{
     background-color: white;
     width: 76%;
-    margin-left: 280px; 
+    position: relative;
+
+    left: 21%;
     border-radius: 20px;  
     text-decoration: none;
 }
@@ -666,4 +668,32 @@ body{
 
 #mainBoxResultadoDesperdicio{
     margin-top: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    
+}
+
+.card {
+    border: 1px solid #585858;
+    border-radius: 5px;
+ 
+    overflow: hidden;
+}
+
+.cardHeader {
+    background-color: #e5e5e5;
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+    
+}
+
+.cardContent{
+    padding: 15px;
+    text-align: center;
 }
