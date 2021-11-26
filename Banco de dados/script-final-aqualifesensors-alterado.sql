@@ -1,4 +1,4 @@
--- Sprint 2
+-- Sprint 3
 -- -----------------------------------------------------
 create database AqualifeSensors; 
 use AqualifeSensors;
@@ -14,29 +14,30 @@ Complemento varchar(45),
 Email varchar(80),
 Senha varchar(50))auto_increment = 101;
 
-SELECT* from Empresa;
-
-alter user 'urubu100'@'localhost' identified by '123';
 -- -----------------------------------------------------
 -- Tabela Tanques 
 create table Tanque(
-idTanque int primary key, -- ***idTanque = fkEmpresa + número do tanque***
+idTanque int, -- ***idTanque = fkEmpresa + número do tanque***
 Tamanhom3 int,
 QntdSensores int, -- ***A cada 2m³ se usa um par de Sensores(LDR, LM35)***
 QntdPeixes int, -- ***Cada m³ comporta 375 tilápias***
 Especie varchar(50),
 DataEntrada date,
 fkEmpresa int,
-foreign key (fkEmpresa) references Empresa (idEmpresa));
+foreign key (fkEmpresa) references Empresa (idEmpresa),
+primary key(idTanque, fkEmpresa)
+);
 -- -----------------------------------------------------
 -- Tabela Usuário
 create table Usuario(
-idUsuario int primary key, -- ***idUsuario = fkEmpresa + 5 digitos***
+idUsuario int auto_increment, -- ***idUsuario = fkEmpresa + 5 digitos***
 Nome varchar(80),
 Email varchar(50),
 Senha varchar(50),
 fkEmpresa int,
-foreign key (fkEmpresa) references Empresa (idEmpresa));
+foreign key (fkEmpresa) references Empresa (idEmpresa),
+primary key (idUsuario, fkEmpresa)
+);
 -- -----------------------------------------------------
 -- Tabela Monitoramento
 create table Monitoramento(
@@ -46,7 +47,9 @@ fkTanque int,
 foreign key (fkTanque) references Tanque (idTanque),
 Horario datetime default current_timestamp,
 StatusTanque varchar(10),
-constraint checkTanque check (StatusTanque = 'Ativo' or StatusTanque = 'Inativo'));
+constraint checkTanque check (StatusTanque = 'Ativo' or StatusTanque = 'Inativo'),
+primary key (fkUsuario, fkTanque)
+);
 -- -----------------------------------------------------
 -- Tabela Sensores
 create table Sensor(
@@ -55,24 +58,29 @@ Tipo varchar(4),
 constraint checkTipoSensor check (Tipo = 'LM35' or Tipo = 'LDR'),
 Revisao datetime,
 fkTanque int,
-foreign key (fkTanque) references Tanque (idTanque)); 
+foreign key (fkTanque) references Tanque (idTanque)
+
+); 
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Tabela Leitura do logSensor
--- create table logSensor(
--- idlogSensor int primary key, 
--- DatahoraLog datetime default current_timestamp,***
--- LogSensor float,
--- fkSensor int,
--- foreign key (fkSensor) references Sensor (idSensor));
--- ***Para a Sprint3 usaremos o datetime default current_timestamp como primary key*** 
+create table logSensor(
+idlogSensor int auto_increment, 
+DatahoraLog datetime default current_timestamp,
+LogSensor float,
+fkSensor int,
+foreign key (fkSensor) references Sensor (idSensor),
+primary key (idlogSensor, fkSensor)
+);
+
+
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Inserir dados (Empresa)
-insert into Empresa (Nome, CNPJ, CEP, Numero, Complemento) values
-('Peixe Fresco',12345432167890, 04447025, 12.500, null), -- 101
-('Rio Doce Piscicultura',09876512345678, 05065098, 6.234, null), -- 102
-('Fisher Piscicultura',56789012345678, 08749030, 500, null); -- 103
+insert into Empresa (Nome, CNPJ, CEP, Numero, Complemento, Email, Senha) values
+('Peixe Fresco',12345432167890, 04447025, 12.500, null, 'peixe@pf.com.br', '123'), -- 101
+('Rio Doce Piscicultura',09876512345678, 05065098, 6.234, null, 'rio@rd.com.br', '123'), -- 102
+('Fisher Piscicultura',56789012345678, 08749030, 500, null, 'fisher@fp.com.br', '123'); -- 103
 -- -----------------------------------------------------
 select*from Empresa;
 -- -----------------------------------------------------
@@ -94,15 +102,14 @@ select*from Tanque;
 -- -----------------------------------------------------
 -- Inserir dados (Usuario)
 -- ***idUsuario = fkEmpresa + 5 digitos*** ---- inicio do CPF --- 
-insert into Usuario (idUsuario, Nome, Login, Senha, Permissao, fkEmpresa) values
-(10112345,'Lucas Fernandes','adm@aqualife.com.br','C!3vcelwYZ^q','Power User',101),
-(10123456,'Caio Almeida','user@qualife.com.br','UtmK28$*7yCM','User',101),
-(10234567,'João Cardoso','adm@aqualife.com.br','cSSH%hz3k%SZ','Power User',102),
-(10245678,'Yane Duarte','user@aqualife.com.br','upsq#KTdSN$F','User',102),
-(10309876,'Amanda Silva','adm@aqualife.com.br','p9rGdF#*zXxe','Power User',103),
-(10387654,'Jéssica Moreira','user@aqualife.com.br','j#6@!rhlTByP','User',103);
+insert into Usuario (idUsuario, Nome, Email, Senha, fkEmpresa) values
+(10112345,'Lucas Fernandes','adm@aqualife.com.br','C!3vcelwYZ^q',101),
+(10123456,'Caio Almeida','user@qualife.com.br','UtmK28$*7yCM',101),
+(10234567,'João Cardoso','adm@aqualife.com.br','cSSH%hz3k%SZ',102),
+(10245678,'Yane Duarte','user@aqualife.com.br','upsq#KTdSN$F',102),
+(10309876,'Amanda Silva','adm@aqualife.com.br','p9rGdF#*zXxe',103),
+(10387654,'Jéssica Moreira','user@aqualife.com.br','j#6@!rhlTByP',103);
 -- -----------------------------------------------------
-select*from Usuario;
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Inserir dados (Monitoramento)
@@ -146,10 +153,12 @@ insert into Sensor (idSensor, Tipo, Revisao, fkTanque) values
 (1030222, 'LM35','2021-07-20', 10302),
 (1030231, 'LDR','2021-07-20', 10302),
 (1030232, 'LM35','2021-07-20', 10302);
+
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Exemplos:
--- -----------------------------------------------------
+-- -----------------------------------------------------r
+
 select * from Empresa join Usuario on fkempresa = idempresa; -- Select empresas + usuários;
 select * from Tanque join Empresa on fkempresa = idempresa; -- Select empresas + tanques;
 select * from Usuario join Monitoramento on  fkusuario = idusuario join Tanque on fktanque = idtanque; -- Select monitoramento feito pelos usuários nos tanques;

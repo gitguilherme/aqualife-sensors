@@ -71,7 +71,7 @@
 
             <div class="listaTanques" id="listaTanques">
                 
-
+<!--
                 <div class="tanque">
                     <div>
                         <h3>Tanque 1</h3>
@@ -85,7 +85,7 @@
                         <button class="btn-fake"><a href="dashboardsite.html">Checar tanque</a></button>
                     </div>
                 </div>
-<!--
+
                 <div class="tanque">
                     <div>
                         <h3>Tanque 1</h3>
@@ -134,7 +134,27 @@
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO
 
         fetch(`http://localhost:3333/tanque/listarTanque/${sessionStorage.ID_EMPRESA}`)
-        .then(res => res.json()).then
+        .then(res => res.json()).then(res =>{
+            for (i = 0; i < res.length; i++){
+            var divTanque = document.createElement("div")
+                divTanque.className = "tanque";
+                divTanque.innerHTML = `
+                <div>
+                            <h3>Tanque ${i+1}</h3>
+                            Tamanho em m³: ${res[i].Tamanhom3},
+                            Qtd sensores: ${res[i].QntdSensores},
+                            Qtd peixes: ${res[i].QntdPeixes},
+                            Espécie: ${res[i].Especie},
+                            Data de entrada: ${res[i].DataEntrada}
+                        </div>
+                        <div>
+                            <button class="btn-fake"><a href="dashboardsite.html">Checar tanque</a></button>
+                        </div>
+                `
+
+                listaTanques.append(divTanque);
+            }
+        })
         esconder()
 
 
