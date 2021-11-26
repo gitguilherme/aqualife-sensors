@@ -1,16 +1,17 @@
 * {
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-body{
-    background: url(https://i.imgur.com/PLqQzbT.jpg) center center no-repeat fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+body {
+    background: url(https://i.imgur.com/PLqQzbT.jpg) center center no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
+
 .header-left {
     position: fixed;
     top: 0;
@@ -23,13 +24,12 @@ body{
     justify-content: space-evenly;
     align-items: center;
     border-right: 3px solid #32B9CD;
-    background: rgb(0,123,184);
-    background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%); 
-
+    background: rgb(0, 123, 184);
+    background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%);
     /* border: 3px solid pink; */
 }
 
-.header-left a{
+.header-left a {
     text-decoration: none;
     color: #007CB8;
     text-decoration: none;
@@ -38,56 +38,64 @@ body{
     border-radius: 5px;
 }
 
-.header-left a:hover{
+.header-left a:hover {
     color: white;
     background-color: #007CB8;
 }
 
-.header{
+.header {
     height: 60px;
-    background: rgb(0,123,184);
-    background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%); 
+    background: rgb(0, 123, 184);
+    background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%);
 }
-.container{
+
+.container {
     height: 100%;
     width: 80%;
     margin: auto;
 }
-.header .container{
+
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.header .container img{
+
+.header .container img {
     margin-top: 8px;
     height: 44px;
     width: 122px;
 }
-.navbar{
+
+.navbar {
     display: flex;
     list-style: none;
     width: 50%;
     justify-content: space-evenly;
 }
-.navbar li{
+
+.navbar li {
     color: #007CB8;
 }
-.navbar li a{
+
+.navbar li a {
     color: #007CB8;
     text-decoration: none;
     padding: 12px;
     transition-duration: 0.4s;
     border-radius: 5px;
 }
-.navbar li a:hover{
+
+.navbar li a:hover {
     background-color: #007CB8;
     color: white;
 }
+
 .navbar .active {
     font-weight: bolder;
 }
 
-.banner{
+.banner {
     height: 460px;
     /* background-image: url(https://i.imgur.com/PLqQzbT.jpg); */
     background-size: cover;
@@ -96,21 +104,23 @@ body{
     justify-content: center;
     align-items: center;
 }
-.banner .message{
+
+.banner .message {
     margin-right: 300px;
     width: 16%;
     color: white;
     font-size: 40px;
     font-weight: bolder;
 }
-#iconMouse{
+
+#iconMouse {
     display: flex;
     padding-bottom: 50px;
     justify-content: center;
     text-align: center;
 }
 
-.proposito{
+.proposito {
     margin: auto;
     border-radius: 15px;
     height: 500px;
@@ -118,27 +128,31 @@ body{
     background-color: #e5e5e5;
 }
 
-.proposito .container{
+.proposito .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.proposito .container h2{
-    color:#007CB8;
+
+.proposito .container h2 {
+    color: #007CB8;
     border-radius: 25px;
 }
-.proposito .container .mvv{
+
+.proposito .container .mvv {
     margin-top: 65px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.proposito .container .mvv div img{
+
+.proposito .container .mvv div img {
     height: 100px;
     width: 100px;
 }
-.proposito .container .mvv div{
+
+.proposito .container .mvv div {
     width: 25vw;
     display: flex;
     flex-direction: column;
@@ -146,55 +160,68 @@ body{
     text-align: justify;
     padding: 15px;
 }
-.proposito .container .mvv div h3{
-    color:#007CB8;
+
+.proposito .container .mvv div h3 {
+    color: #007CB8;
     font-weight: bolder;
     margin: 25px 0;
 }
-.proposito .container .mvv div p{
+
+.proposito .container .mvv div p {
     font-weight: bold;
 }
-.footer{
+
+.footer {
     background-color: #233c72;
     height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.footer p{
+
+.footer p {
     color: white;
 }
-.altura{
+
+.altura {
     height: 100px;
 }
-.adCadastro{
+
+.adCadastro {
     background-image: url(img/bannercadastro.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 400px;
 }
+
 @media (max-width: 1920px) {
-    .adCadastro{
-       height:500px; /*acha uma resolução correta pra o tamanho da tela*/
-       background-size: cover;
+    .adCadastro {
+        height: 500px;
+        /*acha uma resolução correta pra o tamanho da tela*/
+        background-size: cover;
     }
 }
-  @media (max-width: 1366px) {
-    .adCadastro{
-       height: 400px;/*acha uma resolução correta pra o tamanho da tela*/
+
+@media (max-width: 1366px) {
+    .adCadastro {
+        height: 400px;
+        /*acha uma resolução correta pra o tamanho da tela*/
     }
 }
-.experimentar{
+
+.experimentar {
     width: 40%;
     float: left;
     padding-top: 60px;
 }
-.experimentar h4{
+
+.experimentar h4 {
     color: #007CB8;
     line-height: 60px;
     font-size: 30px;
 }
-.experimentar span{
+
+.experimentar span {
     padding: 15px 50px;
     background-color: #007CB8;
     border-radius: 20px;
@@ -202,15 +229,17 @@ body{
     font-weight: bolder;
     transition-duration: 0.4s;
 }
-.experimentar span a{
+
+.experimentar span a {
     text-decoration: none;
     color: white;
 }
-.experimentar span:hover{
+
+.experimentar span:hover {
     background-color: #0497e0;
 }
 
-.banner2 .divlogin  {
+.banner2 .divlogin {
     background-color: #e5e5e5;
     height: 500px;
     width: 30%;
@@ -219,27 +248,26 @@ body{
     align-items: center;
     justify-content: space-around;
     margin: auto;
-    border-radius: 20px; 
-    padding: 13px 0px;  
+    border-radius: 20px;
+    padding: 13px 0px;
     text-decoration: none;
 }
 
-
 .banner2 .divlogin h2 {
     color: #394347;
-    }
+}
 
 .banner2 .divlogin div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    }
+}
 
 .banner2 .divlogin div span {
     color: #007CB8;
     margin-bottom: 10px;
-    }
+}
 
 .banner2 .divlogin div input {
     border: 3px solid #007CB8;
@@ -247,7 +275,7 @@ body{
     padding: 10px;
     border-right: 0px;
     border-top: 0px;
-    }
+}
 
 .banner2 .divlogin button {
     background-color: #007CB8;
@@ -256,26 +284,27 @@ body{
     padding: 10px 20px;
     border-radius: 10px;
     transition-duration: 0.4s;
-    cursor: pointer;   
+    cursor: pointer;
 }
-.banner2 .divlogin button:hover{
+
+.banner2 .divlogin button:hover {
     background-color: #0497e0;
 }
 
-.button .divlogin button a{
+.button .divlogin button a {
     text-decoration: none;
 }
 
-.divConteiner{
+.divConteiner {
     margin: auto;
     border-radius: 35px;
     height: 500px;
     width: 70vw;
     height: 80vh;
     background-color: #e5e5e5;
-}    
+}
 
-.divConteiner .Conteiner .tituloPrincipal{
+.divConteiner .Conteiner .tituloPrincipal {
     display: flex;
     justify-content: center;
     padding-top: 5%;
@@ -289,7 +318,6 @@ body{
     height: 300px;
 }
 
-
 .subTitulo #calcularReceita {
     width: 250px;
     margin-left: 250px;
@@ -298,68 +326,74 @@ body{
     font-weight: bolder;
 }
 
-.divConteiner .Conteiner .opcoesCalculos img{
+.divConteiner .Conteiner .opcoesCalculos img {
     width: 350px;
     margin-left: 140px;
     margin-top: 50px;
 }
-.dashboard{
+
+.dashboard {
     background-color: white;
     width: 76%;
     position: relative;
-
     left: 19%;
-    border-radius: 20px;  
+    border-radius: 20px;
     text-decoration: none;
-    
     padding: 20px;
     padding-bottom: 25px;
 }
-.alertas{
+
+.alertas {
     display: flex;
     justify-content: space-around;
     font-size: 20px;
 }
-.alertas div{
+
+.alertas div {
     margin-top: 10px;
-    
 }
-.alertas div div{
+
+.alertas div div {
     display: flex;
     justify-content: center;
     width: 250px;
 }
-.graficos{
+
+.graficos {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     margin-top: 15px;
 }
-.grafico{
+
+.grafico {
     width: 45%;
 }
-.grafico h1{
+
+.grafico h1 {
     margin-bottom: 10px;
     margin-top: 5px;
 }
-.medias{
+
+.medias {
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
     text-align: center;
 }
-.medias label{
+
+.medias label {
     font-size: 20px;
 }
 
-.banner3{
+.banner3 {
     height: 800px;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
-.banner3 .divCadastro{
+.banner3 .divCadastro {
     background-color: #e5e5e5;
     height: 800px;
     width: 40%;
@@ -370,6 +404,19 @@ body{
     border-radius: 15px;
     margin-top: 70px;
 }
+
+.banner3 .divCadastroFunc {
+    background-color: #e5e5e5;
+    height: 600px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 70px;
+}
+
 .banner3 .divCadastro div {
     display: flex;
     flex-direction: column;
@@ -377,28 +424,66 @@ body{
     align-items: center;
     padding: 8px;
 }
-.banner3 .divCadastro div span{
+
+.banner3 .divCadastroFunc div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.banner3 .divCadastro div span {
     color: #007CB8;
     margin-bottom: 5px;
 }
-.banner3 .divCadastro div p{
+
+.banner3 .divCadastroFunc div span {
+    color: #007CB8;
+    margin-bottom: 5px;
+}
+
+.banner3 .divCadastro div p {
     padding: 1px;
     margin-top: 5px;
     margin-bottom: 5px;
     font-weight: bolder;
 }
-.banner3 .divCadastro div p a{
+
+.banner3 .divCadastroFunc div p {
+    padding: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bolder;
+}
+
+.banner3 .divCadastro div p a {
     color: #007CB8;
     transition-duration: 0.4s;
 }
-.banner3 .divCadastro div p a:hover{
+
+.banner3 .divCadastroFunc div p a {
+    color: #007CB8;
+    transition-duration: 0.4s;
+}
+
+.banner3 .divCadastro div p a:hover {
     color: white;
     background-color: #007CB8;
     padding: 8px;
     border-radius: 15px;
     text-decoration: none;
 }
-.banner3 .divCadastro div input{
+
+.banner3 .divCadastroFunc div p a:hover {
+    color: white;
+    background-color: #007CB8;
+    padding: 8px;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+.banner3 .divCadastro div input {
     border: #007CB8 solid;
     border-right: 0px;
     border-top: 0px;
@@ -406,7 +491,17 @@ body{
     border-radius: 10px;
     width: 300px;
 }
-.banner3 .divCadastro button{
+
+.banner3 .divCadastroFunc div input {
+    border: #007CB8 solid;
+    border-right: 0px;
+    border-top: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.banner3 .divCadastro button {
     background-color: #007CB8;
     color: white;
     border: none;
@@ -416,18 +511,40 @@ body{
     transition-duration: 0.4s;
     cursor: pointer;
 }
-.banner3 .divCadastro button a{
+
+.banner3 .divCadastroFunc button {
+    background-color: #007CB8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.banner3 .divCadastro button a {
     color: white;
     text-decoration: none;
 }
-.banner3 .divCadastro button:hover{
+
+.banner3 .divCadastroFunc button a {
+    color: white;
+    text-decoration: none;
+}
+
+.banner3 .divCadastro button:hover {
+    background-color: #0497e0;
+}
+
+.banner3 .divCadastroFunc button:hover {
     background-color: #0497e0;
 }
 
 
 /* ----- CALCULADORA ---- */
 
-.mainBox{
+.mainBox {
     margin: auto;
     border-radius: 15px;
     height: 700px;
@@ -435,26 +552,26 @@ body{
     background-color: #e5e5e5
 }
 
-.mainBox .boxCalculadora{
+.mainBox .boxCalculadora {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.mainBox .boxCalculadora .opcoesCalculadora{
+.mainBox .boxCalculadora .opcoesCalculadora {
     margin-top: 10px;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.mainBox .boxCalculadora .opcoesCalculadora div img{
+.mainBox .boxCalculadora .opcoesCalculadora div img {
     height: 300px;
     width: 300px;
 }
 
-.mainBox .boxCalculadora .opcoesCalculadora div{
+.mainBox .boxCalculadora .opcoesCalculadora div {
     width: 45vw;
     display: flex;
     flex-direction: column;
@@ -464,19 +581,18 @@ body{
     padding-top: 5%;
 }
 
-.mainBox .boxCalculadora .opcoesCalculadora div h3{
-    color:#007CB8;
+.mainBox .boxCalculadora .opcoesCalculadora div h3 {
+    color: #007CB8;
     font-weight: bolder;
     margin: 25px 0;
 }
 
-
-.mainBox h2{
+.mainBox h2 {
     color: #007CB8;
     padding-top: 3%;
 }
 
-.boxCalculadora{
+.boxCalculadora {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -484,12 +600,12 @@ body{
     text-align: center;
 }
 
-.boxCalculadora p{
+.boxCalculadora p {
     color: #007CB8;
     font-size: 20px;
 }
 
-.inputCalculadora{
+.inputCalculadora {
     width: 40%;
     border: #007CB8 solid;
     border-right: 0px;
@@ -499,7 +615,7 @@ body{
     text-align: center;
 }
 
-.mainBox .boxCalculadora #spanCalcularReceita{
+.mainBox .boxCalculadora #spanCalcularReceita {
     padding: 15px 50px;
     background-color: #007CB8;
     border-radius: 20px;
@@ -508,11 +624,11 @@ body{
     transition-duration: 0.4s;
 }
 
-.mainBox .boxCalculadora #spanCalcularReceita:hover{
+.mainBox .boxCalculadora #spanCalcularReceita:hover {
     background-color: #0497e0;
 }
 
-.mainBox .boxCalculadora .spans{
+.mainBox .boxCalculadora .spans {
     border-radius: 20px;
     color: #fff;
     font-weight: bolder;
@@ -523,8 +639,7 @@ body{
     text-align: center;
 }
 
-
-.mainBox .boxCalculadora .spans span{
+.mainBox .boxCalculadora .spans span {
     margin-top: 70px;
     padding: 20px 50px;
     background-color: #007CB8;
@@ -534,12 +649,11 @@ body{
     transition-duration: 0.4s;
 }
 
-.mainBox .boxCalculadora .spans span:hover{
+.mainBox .boxCalculadora .spans span:hover {
     background-color: #0497e0;
 }
 
-
-.mainBox .boxCalculadora #spanCalcularDesperdicio{
+.mainBox .boxCalculadora #spanCalcularDesperdicio {
     padding: 15px 50px;
     background-color: #007CB8;
     border-radius: 20px;
@@ -548,7 +662,7 @@ body{
     transition-duration: 0.4s;
 }
 
-.mainBox .boxCalculadora #spanCalcularDesperdicio:hover{
+.mainBox .boxCalculadora #spanCalcularDesperdicio:hover {
     background-color: #0497e0;
 }
 
@@ -556,11 +670,11 @@ body{
     display: none;
 }
 
-#mainBoxEviteDesperdicio{
+#mainBoxEviteDesperdicio {
     display: none;
 }
 
-.mainBox .resultados{
+.mainBox .resultados {
     border: #007CB8 solid 2px;
     text-align: center;
     margin: auto;
@@ -570,26 +684,29 @@ body{
     background-color: rgb(195, 191, 191)
 }
 
-.mainBoxResultado{
+.mainBoxResultado {
     align-items: center;
     justify-content: center;
 }
 
-.mainBoxResultado .resultados p{
+.mainBoxResultado .resultados p {
     color: #007CB8;
     font-size: 30px;
     font-weight: bolder;
 }
-.mainBoxResultado .resultados b{
+
+.mainBoxResultado .resultados b {
     font-size: 20px;
     color: #007cb8;
 }
-.mainBoxResultado .resultados b a{
+
+.mainBoxResultado .resultados b a {
     color: #007cb8;
     font-size: 18px;
     transition-duration: 0.4s;
 }
-.mainBoxResultado .resultados b a:hover{
+
+.mainBoxResultado .resultados b a:hover {
     color: white;
     background-color: #007CB8;
     padding: 8px;
@@ -597,11 +714,11 @@ body{
     text-decoration: none;
 }
 
-#mainBoxResultadoReceita{
+#mainBoxResultadoReceita {
     display: none;
 }
 
-.calcularNovamente{
+.calcularNovamente {
     margin-top: 70px;
     padding: 20px 50px;
     background-color: #007CB8;
@@ -610,11 +727,12 @@ body{
     font-weight: bolder;
     transition-duration: 0.4s;
 }
-.calcularNovamente:hover{
+
+.calcularNovamente:hover {
     background-color: #0497e0;
 }
 
-#mainBoxResultadoReceita .spans{
+#mainBoxResultadoReceita .spans {
     padding: 15px 50px;
     border-radius: 20px;
     color: #fff;
@@ -626,8 +744,7 @@ body{
     text-align: center;
 }
 
-
-#mainBoxResultadoReceita .spans span{
+#mainBoxResultadoReceita .spans span {
     margin-top: 10px;
     padding: 20px 50px;
     background-color: #007CB8;
@@ -636,15 +753,16 @@ body{
     font-weight: bolder;
     transition-duration: 0.4s;
 }
-#mainBoxResultadoReceita .spans span:hover{
+
+#mainBoxResultadoReceita .spans span:hover {
     background-color: #0497e0;
 }
 
-#mainBoxResultadoDesperdicio{
+#mainBoxResultadoDesperdicio {
     display: none;
 }
 
-#mainBoxResultadoDesperdicio .spans{
+#mainBoxResultadoDesperdicio .spans {
     padding: 15px 50px;
     border-radius: 20px;
     color: #fff;
@@ -656,7 +774,7 @@ body{
     text-align: center;
 }
 
-#mainBoxResultadoDesperdicio .spans span{
+#mainBoxResultadoDesperdicio .spans span {
     margin-top: 10px;
     padding: 20px 50px;
     background-color: #007CB8;
@@ -665,11 +783,12 @@ body{
     font-weight: bolder;
     transition-duration: 0.4s;
 }
-#mainBoxResultadoDesperdicio .spans span:hover{
+
+#mainBoxResultadoDesperdicio .spans span:hover {
     background-color: #0497e0;
 }
 
-#mainBoxResultadoDesperdicio{
+#mainBoxResultadoDesperdicio {
     margin-top: 20px;
 }
 
@@ -678,13 +797,11 @@ body{
     justify-content: space-between;
     width: 90%;
     margin: auto;
-    
 }
 
 .card {
     border: 1px solid #585858;
     border-radius: 5px;
- 
     overflow: hidden;
 }
 
@@ -693,15 +810,14 @@ body{
     text-align: center;
     padding: 10px;
     font-size: 10px;
-    
 }
 
-.cardContent{
+.cardContent {
     padding: 15px;
     text-align: center;
 }
 
-.btn-fake{
+.btn-fake {
     background-color: #007CB8;
     color: white;
     border: none;
@@ -709,7 +825,6 @@ body{
     border-radius: 10px;
     margin-left: 150px;
     cursor: pointer;
-
 }
 
 .msg {
@@ -720,18 +835,13 @@ body{
     margin-left: 15px;
 }
 
-.tanque{
-
-border-radius: 20px;
-border: 1px solid #007CB8;
-margin-top: 15px;
-
-padding: 10px;
-
-display: flex;
-justify-content: space-around;
-
-
+.tanque {
+    border-radius: 20px;
+    border: 1px solid #007CB8;
+    margin-top: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .tanque a {
