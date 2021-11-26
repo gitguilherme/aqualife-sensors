@@ -25,7 +25,19 @@ function listarTemperaturaMinima(){
         console.log("Executando a instrução SQL: \N"+instrucao);
         return database.executar(instrucao);
 }
+function listarTurbidezMaxima(){
+    console.log("ACESSEI A EMPRESA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
+    var instrucao = `
+        SELECT 
+        max(logSensor) as 'Maiorturbidezdodia'
+        From logSensor
+        where fksensor = 1010111
+        and DataHoraLog >= curdate();`;
+
+        console.log("Executando a instrução SQL: \N"+instrucao);
+        return database.executar(instrucao);
+}
 
 module.exports = {
-    listarTemperaturaMaxima,listarTemperaturaMinima
+    listarTemperaturaMaxima,listarTemperaturaMinima,listarTurbidezMaxima
 };

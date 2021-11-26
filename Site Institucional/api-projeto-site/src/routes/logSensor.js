@@ -12,4 +12,9 @@ router.get("/listarTemperaturaMinima", function(req,res) {
     
 });
 
+router.get("/listarTurbidezMaxima", function(req,res) {
+    logSensorController.listarTurbidezMaxima(req,res);
+    
+});
+
 module.exports = router

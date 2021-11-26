@@ -81,7 +81,7 @@
           <div class="cardHeader">
             <h3>Maior turbidez do dia</h3>
           </div>
-          <div class="cardContent"><h1>45</h1></div>
+          <div class="cardContent"><h1><span id="idMaximaTurb"></span></h1></div>
         </div>
         <div class="card">
           <div class="cardHeader">
@@ -158,6 +158,12 @@
         .then(res=>res.json())
         .then(res=>{
             idMinimaTemp.innerHTML = res[0].Menortemperaturadodia.toFixed(1);
+        })
+
+        fetch("http://localhost:3333/logSensor/listarTurbidezMaxima")
+        .then(res=>res.json())
+        .then(res=>{
+            idMaximaTurb.innerHTML = res[0].Maiorturbidezdodia.toFixed(1);
         })
     }
 
