@@ -69,7 +69,7 @@
           <div class="cardHeader">
             <h3>Maior temperatura do dia</h3>
           </div>
-          <div class="cardContent"><h1>45 ºC</h1></div>
+          <div class="cardContent"><h1><span id="idMaximaTemp">45</span> ºC</h1></div>
         </div>
         <div class="card">
           <div class="cardHeader">
@@ -144,7 +144,16 @@
   <script>
      b_usuario.innerHTML = sessionStorage.NOME_USUARIO
 
+    listarMetricas()
     esconder()
+    function listarMetricas(){
+        
+        fetch(`http://localhost:3333/logSensor/listarTemperaturaMaxima`)
+        .then(res=>res.json())
+        .then(res=>{
+            idMaximaTemp.innerHTML = res[0].Maiortemperaturadodia; 
+        })
+    }
 
 
     function esconder(){
@@ -243,6 +252,8 @@
           get_data2();
 
           sendSensorsData();
+
+          listarMetricas();
    
       }, 3000);
 
