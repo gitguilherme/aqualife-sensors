@@ -70,29 +70,50 @@
             </p>
 
             <div class="listaTanques" id="listaTanques">
+                
+
                 <div class="tanque">
-                    Tamanho em m³: 3
-                    Qtd sensores: 2
-                    Qtd peixes: 4,
-                    Espécie: Tilápia
-                    Data de entrada: 25/11/2021
+                    <div>
+                        <h3>Tanque 1</h3>
+                        Tamanho em m³: 3
+                        Qtd sensores: 2
+                        Qtd peixes: 4,
+                        Espécie: Tilápia
+                        Data de entrada: 25/11/2021
+                    </div>
+                    <div>
+                        <button class="btn-fake"><a href="dashboardsite.html">Checar tanque</a></button>
+                    </div>
+                </div>
+<!--
+                <div class="tanque">
+                    <div>
+                        <h3>Tanque 1</h3>
+                        Tamanho em m³: 3
+                        Qtd sensores: 2
+                        Qtd peixes: 4,
+                        Espécie: Tilápia
+                        Data de entrada: 25/11/2021
+                    </div>
+                    <div>
+                        <button class="btn-fake"><a href="dashboardsite.html">Checar tanque</a></button>
+                    </div>
                 </div>
 
                 <div class="tanque">
-                    Tamanho em m³: 3
-                    Qtd sensores: 2
-                    Qtd peixes: 4,
-                    Espécie: Tilápia
-                    Data de entrada: 25/11/2021
-                </div>
+                    <div>
+                        <h3>Tanque 1</h3>
+                        Tamanho em m³: 3
+                        Qtd sensores: 2
+                        Qtd peixes: 4,
+                        Espécie: Tilápia
+                        Data de entrada: 25/11/2021
+                    </div>
+                    <div>
+                        <button class="btn-fake"><a href="dashboardsite.html">Checar tanque</a></button>
+                    </div>
+                </div>-->
 
-                <div class="tanque">
-                    Tamanho em m³: 3
-                    Qtd sensores: 2
-                    Qtd peixes: 4,
-                    Espécie: Tilápia
-                    Data de entrada: 25/11/2021
-                </div>
             </div>
         </div>
     </div>
@@ -110,9 +131,10 @@
 
     <script>
 
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO
 
-
+        fetch(`http://localhost:3333/tanque/listarTanque/${sessionStorage.ID_EMPRESA}`)
+        .then(res => res.json()).then
         esconder()
 
 

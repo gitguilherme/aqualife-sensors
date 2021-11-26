@@ -107,7 +107,7 @@
                         console.log(JSON.stringify(json));
 
                         sessionStorage.LOGIN_EMPRESA = json.Login;
-                        sessionStorage.NOME_EMPRESA = json.Nome;
+                        sessionStorage.NOME_USUARIO = json.Nome;
                         sessionStorage.ID_EMPRESA = json.idEmpresa;
 
                         setTimeout(function () {
@@ -148,6 +148,7 @@
                         sessionStorage.EMAIL_USUARIO = json.Email;
                         sessionStorage.NOME_USUARIO = json.Nome;
                         sessionStorage.ID_USUARIO = json.idUsuario;
+                        sessionStorage.ID_EMPRESA = json.fkEmpresa;
 
                         setTimeout(function () {
                             window.location = "dashboardsite.html";
