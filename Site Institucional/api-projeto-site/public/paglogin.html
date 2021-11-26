@@ -25,6 +25,16 @@
     <div class="banner2">
         <form class="divlogin" id="form_login" method="post" onsubmit="return entrar()">
             <h3>Bem vindo!</h3>
+
+            <div>
+                <span>Selecione o tipo de usuário:</span>
+                <select name="combo">
+                    <option value="">Selecione o tipo...</option>
+                    <option value="poweruser">Power User</option>
+                    <option value="usercommom">User</option>
+                </select>
+            </div>
+
             <div>
                 <span>E-mail: </span>
                 <input name="login" type="text" placeholder="Insira o e-mail para login">
@@ -34,10 +44,11 @@
                 <input name="senha" type="password" placeholder="ex('Aqualife@123')">
             </div>
             <button>Entrar</button>
-       
-            <h4> Não possui cadastro? <button id="buttonregistro" onclick="location.href='pagcadastro.html'">Registrar-me</button></h4>
+
+            <h4> Não possui cadastro? <button id="buttonregistro"
+                    onclick="location.href='pagcadastro.html'">Registrar-me</button></h4>
         </form>
-        </div>
+    </div>
     </div>
     </div>
     <br><br>
@@ -55,12 +66,13 @@
 
 <script>
 
-function entrar() {
+    function entrar() {
 
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
 
         var login = formulario.get("login");
         var senha = formulario.get("senha");
+        var combinho = formulario.get("combo");
 
         console.log("FORM LOGIN: ", login);
         console.log("FORM SENHA: ", senha);
@@ -68,16 +80,101 @@ function entrar() {
         // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
         if (login == "" || senha == "") {
             window.alert("Preencha todos os campos para prosseguir!");
-            
+
             return false;
         }
 
         if (login.indexOf("@") == -1 || login.indexOf(".com") == -1) {
             window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
-            
+
             return false;
         }
+        if (combinho == "") {
+            alert("Selecione o tipo de usuário!")
+        }
+        else if (combinho == "poweruser") {
+            fetch("/empresa/autenticar", {
+                method: "POST",
+                body: formulario
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
 
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.LOGIN_EMPRESA = json.Login;
+                        sessionStorage.NOME_EMPRESA = json.Nome;
+                        sessionStorage.ID_EMPRESA = json.idEmpresa;
+
+                        setTimeout(function () {
+                            window.location = "dashboardsite.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+        }else{
+    
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                body: formulario
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.EMAIL_USUARIO = json.Email;
+                        sessionStorage.NOME_USUARIO = json.Nome;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+
+                        setTimeout(function () {
+                            window.location = "dashboardsite.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+        
+
+
+        }
+
+/*
         fetch("/empresa/autenticar", {
             method: "POST",
             body: formulario
@@ -109,13 +206,13 @@ function entrar() {
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    
+
                 });
             }
 
         }).catch(function (erro) {
             console.log(erro);
-        })
+        })*/
 
         return false;
     }

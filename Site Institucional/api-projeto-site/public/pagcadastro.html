@@ -24,14 +24,7 @@
     <div class="banner3">
         <div class="divCadastro">
             <h3>Registrar-se</h3>
-            <div>
-                <span>Selecione o tipo de usuário:</span>
-                <select id="">
-                    <option value="">Selecione o tipo...</option>
-                    <option value="">Power User</option>
-                    <option value="">User</option>
-                </select>
-            </div>
+            
             <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                 <div>
                     <span>Nome da empresa:</span>
@@ -122,7 +115,7 @@
             return false;
         }
 
-        fetch("/usuarios/cadastrar", {
+        fetch("/empresa/cadastrar", {
             method: "POST",
             body: formulario
         }).then(function (resposta) {

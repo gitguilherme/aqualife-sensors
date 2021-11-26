@@ -33,14 +33,20 @@
     </div>
 
     <div class="btn-nav-white">
-        <a href="./cards.html">
+        <a href="./dashboardsite.html">
             Início
+        </a>
+    </div>
+
+    <div class="btn-nav-blue" id="refFuncionario">
+        <a href="./cadastrofunc.html">
+            Funcionários
         </a>
     </div>
 
     <div class="btn-nav">
 
-      <a href="./mural.html">
+      <a href="./pagtanques.html">
         Tanques
     </a>
 
@@ -49,30 +55,15 @@
 
 
     <div class="btn-logout" onclick="limparSessao()">
-        <a href="./mural.html">
+        <a href="./index.html">
             Sair
         </a>
     </div>
 
 </div>
-
   <br /><br /><br /><br /><br /><br />
   <div class="banner2 dash">
     <div class="dashboard">
-      <div class="alertas">
-        <div id="alertTemperatura">
-          <div>
-            <img id="imgAlertTemperatura" src="" />
-          </div>
-          <div id="msgAlertaTemperatura"></div>
-        </div>
-        <div id="alertTurbidez">
-          <div>
-            <img id="imgAlertTurbidez" src="" />
-          </div>
-          <div id="msgAlertaTurbidez"></div>
-        </div>
-      </div>
       <div class="cards">
         <div class="card">
           <div class="cardHeader">
@@ -97,6 +88,20 @@
             <h3>Menor turbidez do dia</h3>
           </div>
           <div class="cardContent"><h1>23</h1></div>
+        </div>
+      </div>
+      <div class="alertas">
+        <div id="alertTemperatura">
+          <div>
+            <img id="imgAlertTemperatura" src="" />
+          </div>
+          <div id="msgAlertaTemperatura"></div>
+        </div>
+        <div id="alertTurbidez">
+          <div>
+            <img id="imgAlertTurbidez" src="" />
+          </div>
+          <div id="msgAlertaTurbidez"></div>
         </div>
       </div>
       <div class="graficos">
@@ -137,6 +142,24 @@
   </div>-->
 
   <script>
+     b_usuario.innerHTML = sessionStorage.NOME_USUARIO
+
+    esconder()
+
+
+    function esconder(){
+        if(sessionStorage.ID_USUARIO != null){
+            refFuncionario.style.display="none"
+        }
+
+
+
+
+    }
+
+    function limparSessao(){
+        sessionStorage.clear();
+    }
 
     var context = document.getElementById("chart").getContext("2d");
     var context2 = document.getElementById("chart2").getContext("2d");
@@ -214,71 +237,6 @@
 
       var chart2 = new Chart(context2, configuration2);
 
-      var alertasTemperatura = [
-        
-        {
-          valor:34,
-          msg:'Temperatura crítica'
-        },
-        {
-          valor:32,
-          msg:'Temperatura próxima de crítica'
-        },
-        {
-          valor:31,
-          msg:'Temperatura próxima de crítica'
-        },
-        {
-          valor:26,
-          msg:'Temperatura OK: Tamanho grande'
-        },
-        {
-          valor:23,
-          msg:'Temperatura OK: Tamanho médio'
-        },
-        {
-          valor:19,
-          msg:'Temperatura com taxa de crescimento reduzida'
-        },
-        {
-          valor:18,
-          msg:'Abaixo dessa temperatura a reprodução é interrompida'
-        },
-        {
-          valor:17,
-          msg:'Abaixo dessa temperatura a alimentação é interrompida'
-        },
-        {
-          valor:16,
-          msg:'Temperatura com taxa de crescimento prejudicada, reprodução e alimentação interrompida'
-        },
-        {
-          valor:11,
-          msg:'Temperatura próxima de crítica'
-        },
-        {
-          msg:'Risco de morte'
-        }
-      ]
-
-      var alertasTurbidez = [
-        {
-          valor:100,
-          msg:'Turbidez crítica'
-        },
-        {
-          valor:83.4,
-          msg:'Turbidez próxima de crítica'
-        },
-        {
-          valor:66.7,
-          msg:'Alerta!'
-        },
-        {
-          msg:'Turbidez Ok'
-        }
-      ]
-
       setInterval(() => {
           get_data();
 
@@ -304,10 +262,71 @@
 
                 chart.data.labels.push(data.dataHoraLog);
                 chart.data.datasets[0].data.push(parseFloat(data.logSensor));
-                chart.update();
+                
+              if (data.logSensor >= 34) {
+                  imgAlertTemperatura.src = 'img/alertDarkRed.png';
+                  msgAlertaTemperatura.innerHTML = "Temperatura crítica: acima do desejado, pode ocorrer perda";
+                  chart.data.datasets[0].backgroundColor = 'darkred';
+              }
+              else if (data.logSensor >= 32) {
+                  imgAlertTemperatura.src = 'img/alertOrange.png';
+                  msgAlertaTemperatura.innerHTML = "Temperatura próxima de crítica";
+                  chart.data.datasets[0].backgroundColor = 'orange';
+              }
+              else if (data.logSensor >= 31) {
+                  imgAlertTemperatura.src = 'img/alertYellow.png';
+                  msgAlertaTemperatura.innerHTML = "Temperatura próxima de crítica";
+                  chart.data.datasets[0].backgroundColor = 'yellow';
+              }
+              else if (data.logSensor >= 26) {
+                  imgAlertTemperatura.src = 'img/checkLightGreen.png';
+                  msgAlertaTemperatura.innerHTML = "Temperatura OK: Tamanho grande";
+                  chart.data.datasets[0].backgroundColor = 'green';
+              }
+              else if (data.logSensor >= 23) {
+                  imgAlertTemperatura.src = 'img/checkLightGreen.png';
+                  msgAlertaTemperatura.innerHTML = "Temperatura OK: Tamanho médio";
+                  chart.data.datasets[0].backgroundColor = 'lightgreen';
 
-              
-			});
+              }
+              else if (data.logSensor >= 19) {
+                  imgAlertTemperatura.src = 'img/alertSkyBlue.png';
+                  msgAlertaTemperatura.innerHTML = "Temperatura com taxa de crescimento reduzida";
+                  chart.data.datasets[0].backgroundColor = 'skyblue';
+
+              }
+              else if (data.logSensor >= 18) {
+                  imgAlertTemperatura.src = 'img/alertDodgerBlue.png';
+                  msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a reprodução é interrompida";
+                  chart.data.datasets[0].backgroundColor = 'dodgerblue';
+              }
+              else if (data.logSensor >= 17) {
+                  imgAlertTemperatura.src = 'img/alertDodgerBlue.png';
+                  msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a reprodução é interrompida";
+                  chart.data.datasets[0].backgroundColor = 'dodgerblue';
+
+              }
+              else if (data.logSensor >= 16) {
+                  imgAlertTemperatura.src = 'img/alertBlue.png';
+                  msgAlertaTemperatura.innerHTML = "Abaixo dessa temperatura a alimentação é interrompida";
+                  chart.data.datasets[0].backgroundColor = 'blue';
+              }
+              else if (data.logSensor >= 11) {
+                  imgAlertTemperatura.src = 'img/alertRoyalBlue.png';
+                  msgAlertaTemperatura.innerHTML = "Temperatura com taxa de crescimento prejudicada, reprodução e alimentação interrompida";
+                  chart.data.datasets[0].backgroundColor = 'royalblue';
+
+              }
+              else {
+                  msgAlertaTemperatura.innerHTML = "Risco de morte";
+                  chart.data.datasets[0].backgroundColor = 'darkblue';
+                  imgAlertTemperatura.src = 'img/alertDarkBlue.png';
+
+              }
+
+              chart.update();
+          });
+
         
         })
       } 
@@ -328,6 +347,28 @@
 
             chart2.data.labels.push(data.dataHoraLog);
             chart2.data.datasets[0].data.push(parseFloat(data.logSensor));
+
+            if (data.logSensor >= 100) {
+                  imgAlertTurbidez.src = 'img/alertRed.png';
+                  msgAlertaTurbidez.innerHTML = "Turbidez crítica";
+                  chart2.data.datasets[0].backgroundColor = 'red';
+              } else if (data.logSensor >= 83.4) {
+                  imgAlertTurbidez.src = 'img/alertOrange.png';
+                  msgAlertaTurbidez.innerHTML = "Turbidez próxima de crítica";
+                  chart2.data.datasets[0].backgroundColor = 'orange';
+
+
+              } else if (data.logSensor >= 66.67) {
+                  imgAlertTurbidez.src = 'img/alertYellow.png';
+                  msgAlertaTurbidez.innerHTML = "Alerta!";
+                  chart2.data.datasets[0].backgroundColor = 'yellow';
+
+              } else {
+                  imgAlertTurbidez.src = 'img/checkLightGreen.png';
+                  msgAlertaTurbidez.innerHTML = "Turbidez ok";
+                  chart2.data.datasets[0].backgroundColor = 'green';
+
+              }
             chart2.update();
 
           

@@ -311,6 +311,7 @@ body{
     left: 21%;
     border-radius: 20px;  
     text-decoration: none;
+    padding-top: 20px;
 }
 .alertas{
     display: flex;
@@ -696,4 +697,34 @@ body{
 .cardContent{
     padding: 15px;
     text-align: center;
+}
+
+.btn-fake{
+    background-color: #007CB8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer; 
+    margin-left: 1650px;
+
+}
+
+.msg {
+    text-align: center;
+}
+
+.listaTanques {
+    margin-left: 15px;
+}
+
+.tanque{
+
+border-radius: 20px;
+border: 1px solid #007CB8;
+margin-top: 5px;
+padding: 10px;
+
+
 }

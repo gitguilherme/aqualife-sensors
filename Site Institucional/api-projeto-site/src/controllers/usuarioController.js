@@ -61,27 +61,21 @@ function entrar (req, res) {
 
 function cadastrar(req, res) {
     var nome = req.body.nome;
-    var cnpj = req.body.cnpj;
-    var cep = req.body.cep;
-    var numero = req.body.numero;
-    var complemento = req.body.complemento;
+    var fkEmpresa = req.body.fkempresa
     var email = req.body.email;
     var senha = req.body.senha;
 
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (cnpj == undefined) {
-        res.status(400).send("Seu cnpj está undefined!");
-    } else if (cep == undefined) {
-        res.status(400).send("Seu cep está undefined!");
-    } else if (numero == undefined) {
-        res.status(400).send("Seu numero está undefined!");
+    }
+     else if (fkEmpresa == undefined) {
+        res.status(400).send("Sua fkEmpresa está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, cnpj, cep, numero, complemento, email, senha)
+        usuarioModel.cadastrar(nome, email, senha,fkEmpresa)
         .then(
             function (resultado) {
                 res.json(resultado);

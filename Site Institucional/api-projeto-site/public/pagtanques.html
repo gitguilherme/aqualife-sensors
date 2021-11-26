@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aqualife</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+</head>
+
+<body>
+    <!--
+  <div class="header">
+    <div class="container">
+      <div class="logo"><txt src="" /></div>
+      <ul class="navbar">
+        <li><a href="">Informações da empresa</a></li>
+        <li><a href="" class="active">Informações dos tanques</a></li>
+        <li><a href="index.html">Sair</a></li>
+      </ul>
+    </div>
+  </div>-->
+    <div class="header-left">
+        <div class="logo"><img src="img/nome_logo.png" width="120px" height="65px" /></div>
+
+
+        <div class="hello">
+            <h3>Bem vindo <span id="b_usuario"></span>!</h3>
+        </div>
+
+        <div class="btn-nav-white">
+            <a href="./dashboardsite.html">
+                Início
+            </a>
+        </div>
+
+        <div class="btn-nav-blue" id="refFuncionario">
+            <a href="./cadastrofunc.html">
+                Funcionários
+            </a>
+        </div>
+
+        <div class="btn-nav">
+
+            <a href="./pagtanques.html">
+                Tanques
+            </a>
+
+        </div>
+
+
+
+        <div class="btn-logout" onclick="limparSessao()">
+            <a href="./index.html">
+                Sair
+            </a>
+        </div>
+
+    </div>
+    <br /><br /><br /><br /><br /><br />
+    <div class="banner2 dash">
+
+        <div class="dashboard">
+            <p class="msg">Contate a equipe AqualifeSensors através do portal de suporte para incluir um novo tanque!
+            </p>
+
+            <div class="listaTanques" id="listaTanques">
+                <div class="tanque">
+                    Tamanho em m³: 3
+                    Qtd sensores: 2
+                    Qtd peixes: 4,
+                    Espécie: Tilápia
+                    Data de entrada: 25/11/2021
+                </div>
+
+                <div class="tanque">
+                    Tamanho em m³: 3
+                    Qtd sensores: 2
+                    Qtd peixes: 4,
+                    Espécie: Tilápia
+                    Data de entrada: 25/11/2021
+                </div>
+
+                <div class="tanque">
+                    Tamanho em m³: 3
+                    Qtd sensores: 2
+                    Qtd peixes: 4,
+                    Espécie: Tilápia
+                    Data de entrada: 25/11/2021
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="altura"></div>
+    <!--
+  <div class="footer">
+    <p>©2021 — Aqualife Sensors Todos os direitos reservados.</p>
+  </div>-->
+
+
+
+
+    <script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO
+
+
+        esconder()
+
+
+        function esconder() {
+            if (sessionStorage.ID_USUARIO != null) {
+                refFuncionario.style.display = "none"
+            }
+
+
+        }
+
+        function limparSessao() {
+            sessionStorage.clear();
+        }
+    </script>
+</body>
+
+</html>
