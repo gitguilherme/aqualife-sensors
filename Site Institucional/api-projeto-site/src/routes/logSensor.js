@@ -17,4 +17,9 @@ router.get("/listarTurbidezMaxima", function(req,res) {
     
 });
 
+router.get("/listarTurbidezMinima", function(req,res) {
+    logSensorController.listarTurbidezMinima(req,res);
+    
+});
+
 module.exports = router

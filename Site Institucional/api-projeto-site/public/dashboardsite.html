@@ -95,7 +95,7 @@
                         <h3>Menor turbidez do dia</h3>
                     </div>
                     <div class="cardContent">
-                        <h1>23</h1>
+                        <h1><span id="idMinimaTurb"></span></h1>
                     </div>
                 </div>
             </div>
@@ -175,6 +175,12 @@
                 .then(res => {
                     idMaximaTurb.innerHTML = res[0].Maiorturbidezdodia.toFixed(1);
                 })
+
+                fetch("http://localhost:3333/logSensor/listarTurbidezMinima")
+        .then(res=>res.json())
+        .then(res=>{
+            idMinimaTurb.innerHTML = res[0].Menorturbidezdodia.toFixed(1);
+        })
         }
 
 
@@ -284,8 +290,9 @@
                 .then(res => res.json())
                 .then(res => {
                     console.log(res)
-
+                    var soma = 0.
                     res.forEach(data => {
+                        soma+=data.logSensor;
                         //Máximo de 60 itens exibidos no gráfico
                         if (chart.data.labels.length >= 10) {
                             chart.data.labels.shift();
@@ -349,7 +356,9 @@
                         chart.update();
                     });
 
+                    var media = soma/res.length;
 
+                    average.innerHTML = media.toFixed(2);
                 })
         }
 
@@ -359,8 +368,9 @@
                 .then(res => res.json())
                 .then(res => {
                     console.log(res)
-
+                    var soma = 0;
                     res.forEach(data => {
+                        soma+=data.logSensor
                         //Máximo de 60 itens exibidos no gráfico
                         if (chart2.data.labels.length >= 10) {
                             chart2.data.labels.shift();
@@ -395,7 +405,8 @@
 
 
                     });
-
+                    var media = soma/res.length;
+                    averageTurbidez.innerHTML = media.toFixed(2)
                 })
         }
 
