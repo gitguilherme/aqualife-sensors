@@ -23,7 +23,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    border-right: 3px solid #32B9CD;
+    border-right: 1px solid #32B9CD;
     background: rgb(0, 123, 184);
     background: linear-gradient(130deg, rgba(0, 123, 184, 0.219) 0%, rgba(235, 239, 245, 0.842) 20%, rgb(235, 239, 245, 0.842) 80%, rgba(0, 123, 184, 0.219) 100%);
     /* border: 3px solid pink; */
@@ -33,9 +33,10 @@ body {
     text-decoration: none;
     color: #007CB8;
     text-decoration: none;
-    padding: 25px;
+    padding: 18px;
     transition-duration: 0.4s;
     border-radius: 5px;
+    font-weight: 750;
 }
 
 .header-left a:hover {
@@ -157,7 +158,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: justify;
+    text-align: center;
     padding: 15px;
 }
 
@@ -181,6 +182,7 @@ body {
 
 .footer p {
     color: white;
+    margin-right: 30px;
 }
 
 .altura {
@@ -334,12 +336,12 @@ body {
 
 .dashboard {
     background-color: white;
-    width: 76%;
+    width: 75%;
     position: relative;
-    left: 19%;
+    left: 19.5%;
     border-radius: 20px;
     text-decoration: none;
-    padding: 20px;
+    padding: 25px;
     padding-bottom: 25px;
 }
 
@@ -408,7 +410,7 @@ body {
 .banner3 .divCadastroFunc {
     background-color: #e5e5e5;
     height: 600px;
-    width: 40%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
