@@ -3,10 +3,10 @@ var sql = require('mssql');
 
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
-    user: "XXXXX",
-    password: "XXXXX",  
-    database: "XXXXX",
-    server: "XXXXX",
+    user: "adm-aqualife",
+    password: "Aqu@life3",  
+    database: "AqualifeSensors",
+    server: "aqualife-sensors.database.windows.net",
     pool: {
         max: 10,
         min: 0,
@@ -21,7 +21,7 @@ var sqlServerConfig = {
 var mySqlConfig = {
     host: "localhost",
     user: "root",
-    password: "bandtec",
+    password: "123",
     database: "AqualifeSensors",
 };
 
@@ -66,6 +66,24 @@ function executar(instrucao) {
     }
 }
 
+function executarMysql(instrucao){
+    return new Promise(function (resolve, reject) {
+        var conexao = mysql.createConnection(mySqlConfig);
+        conexao.connect();
+        conexao.query(instrucao, function(erro, resultados) {
+            conexao.end();
+            if (erro) {
+                reject(erro);
+            }                      
+            console.log(resultados);
+            resolve(resultados);    
+        });
+        conexao.on('error', function (erro) {
+            return ("ERRO NO MySQL WORKBENCH (Local): ", erro.sqlMessage);
+        });
+    });
+}
+
 module.exports = {
-    executar
+    executar, executarMysql
 }
