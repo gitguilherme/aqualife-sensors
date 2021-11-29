@@ -8,10 +8,10 @@ function listarTemperaturaMaxima() {
             max(LogSensor) as 'Maiortemperaturadodia' 
                 FROM logSensor 
                     where fkSensor = 1010112 
-                        and DataHoraLog >= curdate();`;
+                        and DataHoraLog >= CAST(GETDATE() AS DATE)`;
                         
     console.log("Executando a instrução SQL: \n"+instrucao);
-    return database.executarMysql(instrucao);
+    return database.executar(instrucao);
 
 }
 function listarTemperaturaMinima(){
@@ -21,10 +21,10 @@ function listarTemperaturaMinima(){
         min(logSensor) as 'Menortemperaturadodia'
         From logSensor
         where fksensor = 1010112
-        and DataHoraLog >= curdate();`;
+        and DataHoraLog >= CAST(GETDATE() AS DATE)`;
 
         console.log("Executando a instrução SQL: \N"+instrucao);
-        return database.executarMysql(instrucao);
+        return database.executar(instrucao);
 }
 function listarTurbidezMaxima(){
     console.log("ACESSEI A EMPRESA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
@@ -33,10 +33,10 @@ function listarTurbidezMaxima(){
         max(logSensor) as 'Maiorturbidezdodia'
         From logSensor
         where fksensor = 1010111
-        and DataHoraLog >= curdate();`;
+        and DataHoraLog >= CAST(GETDATE() AS DATE)`;
 
         console.log("Executando a instrução SQL: \N"+instrucao);
-        return database.executarMysql(instrucao);
+        return database.executar(instrucao);
 }
 function listarTurbidezMinima(){
     console.log("ACESSEI A EMPRESA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
@@ -45,10 +45,10 @@ function listarTurbidezMinima(){
         min(logSensor) as 'Menorturbidezdodia'
         From logSensor
         where fksensor = 1010111
-        and DataHoraLog >= curdate();`;
+        and DataHoraLog >= CAST(GETDATE() AS DATE)`;
 
         console.log("Executando a instrução SQL: \N"+instrucao);
-        return database.executarMysql(instrucao);
+        return database.executar(instrucao);
 }
 module.exports = {
     listarTemperaturaMaxima,listarTemperaturaMinima,listarTurbidezMaxima,listarTurbidezMinima

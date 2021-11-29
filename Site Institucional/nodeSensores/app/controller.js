@@ -35,14 +35,12 @@ router.get('/logSensor/:idSensor', (request, response, next) => {
     //let sum = ArduinoDataTemp.List.reduce((a, b) => a + b, 0);
     //let average = (sum / ArduinoDataTemp.List.length).toFixed(2);
 
-    var sql = "SELECT logSensor, DATE_FORMAT(datahoraLog, '%H:%i:%S') as dataHoraLog from logSensor where fkSensor = ?";
+    var sql = `SELECT logSensor, FORMAT(DataHoraLog, '%h:%m:%s') as dataHoraLog from logSensor where fkSensor = ${idSensor}`;
 
-    db.query(sql, [idSensor], function (err, result) {
-        if (err) throw err;
-        
-        response.json(result);
-        console.log(result)
-    });
+    db.executar(sql).then(result=>{
+        response.json(result)
+    })
+    
 
 });
 
@@ -54,17 +52,17 @@ router.post('/sendData', (request, response) => {
     temperatura_lm35 = temperatura_lm35[temperatura_lm35.length - 1];
     turbidez = turbidez[turbidez.length - 1];;
 
-    var sql = "INSERT INTO logSensor (LogSensor, fkSensor) VALUES (?, ?);";
+    var sql = `INSERT INTO logSensor (LogSensor, fkSensor) VALUES (${temperatura_lm35}, 1010112);`;
 
-    db.query(sql, [temperatura_lm35, 1010112], function (err, result) {
+    db.executar(sql, function (err, result) {
         if (err) throw err;
         console.log("Number of records inserted: " + result.affectedRows);
     });
     console.log(sql)
 
-    var sql = "INSERT INTO logSensor (LogSensor, fkSensor) VALUES (?, ?);";
+    var sql = `INSERT INTO logSensor (LogSensor, fkSensor) VALUES (${turbidez}, 1010111);`;
 
-    db.query(sql, [turbidez, 1010111], function (err, result) {
+    db.executar(sql, function (err, result) {
         if (err) throw err;
         console.log("Number of records inserted: " + result.affectedRows);
     });
